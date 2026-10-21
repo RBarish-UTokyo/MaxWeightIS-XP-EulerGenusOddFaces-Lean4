@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-21",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc2",
+  "mathlib_revision": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+  "main_theorem": "WeightedMIS.Spec.main_claim",
+  "main_theorem_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "development_modules": 467,
+  "development_physical_lines": 85784,
+  "challenge_lines": 707,
+  "challenge_bytes": 31015,
+  "full_clean_build": "passed: lake build of WeightedMIS, Challenge and Solution against the pinned Mathlib cache",
+  "public_declarations_audited": 6056,
+  "audit_axioms_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "comparator": "passed: Lean kernel, nanoda and con-ron kernels accept the solution",
+  "source_requirements": "passed (scripts/check-lean-sources.py)",
+  "program_procedures": 634
+}

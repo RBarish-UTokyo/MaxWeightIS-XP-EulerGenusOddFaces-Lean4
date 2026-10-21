@@ -1,0 +1,150 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "An XP Algorithm for Maximum-Weight Independent Set in Embedded Graphs, in Lean 4"
+  description: >-
+    A Lean 4 and Mathlib formalization of Theorem 1 of "Maximum-weight
+    independent set in embedded graphs parameterized by Euler genus and number
+    of odd faces" (forthcoming),
+    with a provably correct implementation of the algorithm as one fixed
+    program for an explicit sixteen-register pointer machine. Lean proves
+    that for every graph drawn in a closed surface of Euler genus gamma whose
+    complement has k regions of odd total boundary length, and all rational
+    vertex weights, the program outputs a maximum-weight independent set
+    within f(gamma + k) * N^(D(gamma, k) + C) * (L + 1)^b bit operations,
+    with D(gamma, k) = max {0, gamma + k - 2, gamma - 1}, improved to
+    max {0, gamma + k - 2} on orientable surfaces; f is an explicit computable
+    function and C, b are absolute constants. Surfaces are represented by
+    finite combinatorial flag maps; disconnected and noncellular drawings,
+    loops, multiple edges, isolated vertices and negative weights are
+    covered. The cost is a logarithmic bit-cost measure including an explicit
+    stack simulation of recursive calls. The proofs use exactly propext,
+    Classical.choice and Quot.sound.
+  authors:
+    - "Robert D. Barish"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Robert D. Barish"
+
+classification:
+  arxiv: [cs.DS, math.CO]
+  msc2020: [05C69, 05C10, 68Q25, 68R10, 68V20]
+
+sources:
+  - title: "Maximum-weight independent set in embedded graphs parameterized by Euler genus and number of odd faces"
+    type: "forthcoming manuscript"
+    relationship: formalizes
+    note: >-
+      The target is Theorem 1, including its extensions to graphs with loops,
+      to disconnected and noncellular drawings (odd regions counted by total
+      boundary length) and the orientable sharpening, for an explicit machine
+      model and input encoding. The manuscript is forthcoming and is not
+      included in this repository. The proof follows the manuscript's algorithm;
+      documented differences are listed under fidelity.divergences and in
+      README.md.
+    license: "unknown"
+  - title: "Vertex packings: Structural properties and algorithms"
+    authors:
+      - "G. L. Nemhauser"
+      - "L. E. Trotter, Jr."
+    type: article
+    id: "doi:10.1007/BF01580444"
+    location: "Mathematical Programming 8 (1975), 232-248"
+    relationship: background
+    note: >-
+      Cited by the manuscript for half-integrality and weighted persistence;
+      both are proved directly in this development.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Proved: WeightedMIS.Spec.main_claim, the uniform bit-operation statement
+    of Theorem 1 with exponent exactly D(gamma, k) + C (and the orientable
+    sharpening), for one fixed program (WeightedMIS.FinalProgram.program, 634
+    procedures), with explicit computable f and C = 44, b = 43. The statement
+    is in Challenge.lean, a verbatim copy of WeightedMIS/Statement.lean. The
+    surface is represented combinatorially (flag maps); no realization
+    theorem relating flag maps to topological surfaces is formalized. The
+    input is a fixed binary encoding with common word widths.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+
+automation:
+  methods:
+    - method: agent
+      models: [openai-gpt-6-astra, claude-opus-5-5]
+      framework: "AI coding agents: GPT-6 Astra (OpenAI) and Opus 5.5 (Anthropic)"
+      tool_setup: >-
+        GPT-6 Astra (OpenAI) and Opus 5.5 (Anthropic) were used, as agents
+        under the direction of the author, both for the Lean formalization
+        and to assist with the documentation. The author set the task, the
+        target statement and the requirements, and reviewed the result.
+        Tools: Lean v4.35.0-rc2 and Lake, Mathlib, the toolchain's lake
+        comparator and independent kernels.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "cloud container"
+      prompting_notes: "n/a"
+  spend_usd: "not tracked"
+  notes: >-
+    The author directed and reviewed the work. GPT-6 Astra (OpenAI) and
+    Opus 5.5 (Anthropic) assisted with the Lean definitions, statements,
+    proofs, machine programs and scripts, and with the documentation
+    (README.md, this file, the generated Challenge.lean header and the
+    verification records).
+
+fidelity:
+  divergences: >-
+    (1) Surfaces are finite combinatorial flag maps, and the drawing is given
+    together with a witness that it is a subdrawing of a cellular map of the
+    surface; the ambient map is a proof witness only and does not enter the
+    input size. (2) N = |V| + |E| + 1 counts the drawing (the manuscript's
+    N also counts faces; this changes N by a constant factor). (3) The
+    machine is an explicit sixteen-register pointer machine with a
+    logarithmic bit-cost measure including the explicit stack cost of calls;
+    the input is a fixed binary encoding with common widths. (4) The kernel
+    complement W is computed from incidence-kernel generators by cycle
+    decomposition and greedy rank-increasing selection, not from an odd
+    unicycle; its rows have entries of absolute value at most two and its
+    number of rows is the dimension of Lemma 6. (5) Half-integrality and
+    persistence are proved via the max-flow construction rather than the
+    extreme-point argument.
+
+review:
+  status: "reviewed by the author"
+  reviewers:
+    - "Robert D. Barish"
+  notes: >-
+    The author reviewed the formalization and its statement. The proof is
+    checked by the Lean kernel, and Comparator verifies that the solution
+    proves the challenge statement using only the permitted axioms.
+
+alignment:
+  namespace: "WeightedMIS"
+  statements:
+    - source: "Theorem 1 (with its noncellular, disconnected and orientable extensions)"
+      lean: "WeightedMIS.Spec.main_claim"
+      module: "Solution"
+      status: proved
+      note: >-
+        Statement WeightedMIS.Spec.MainClaim (WeightedMIS/Statement.lean);
+        proof WeightedMIS.MainTheorem.mainClaim_of_program applied to the
+        concrete table WeightedMIS.FinalProgram.program.
+    - source: "Lemmas 3-5, 8-10 and the recovery argument (correctness of the algorithm)"
+      lean: "WeightedMIS.ExecutableMIS.solve_correct"
+      module: "WeightedMIS.ExecutableMIS"
+      status: proved
+      note: "The executable solver returns a maximum-weight independent set for arbitrary rational weights."
+    - source: "Lemmas 2, 6, 7 and 11 (parameter bound on computed components)"
+      lean: "WeightedMIS.ComputedDrawing.solve_correct_and_parameters"
+      module: "WeightedMIS.ComputedDrawingParameters"
+      status: proved
+      note: "Actual computed dimensions are at most D(gamma, k), and at most the orientable exponent on orientable surfaces."
+
+acknowledgements: >-
+  Mathlib and the Lean community; the Lean toolchain's lake comparator and
+  independent kernels.

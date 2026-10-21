@@ -1,0 +1,696 @@
+module
+
+public import Mathlib
+
+/-!
+# The statement surface: machine, cost, surfaces, encoding and the main claim
+
+Every definition used by the main claim lives in this one module, so that
+`Challenge.lean` is a verbatim copy of its body and every auxiliary
+declaration Lean generates (pattern-match helpers, recursors) is identical in
+the challenge and in the proof development.
+
+Contents, in order: memory cells, heap events and runs; the explicit
+bit-stack cost of calls; the sixteen-register machine and its framed
+interpreter; combinatorial surface maps, drawings and independent sets; and
+the input encoding, output reading and `MainClaim`.
+-/
+
+@[expose] public section
+
+/-! ## The machine: memory cells, events and runs -/
+
+namespace WeightedMIS.PointerMemory
+
+abbrev Ptr := ℕ
+
+inductive Cell
+  | nil
+  | bit (value : Bool) (tail : Ptr)
+  | cons (head tail : Ptr)
+  | fork (left right : Ptr)
+  | bucket (items : Ptr)
+  | pair (first second : Ptr)
+  deriving DecidableEq, Repr
+
+def Cell.references : Cell → List Ptr
+  | .nil => []
+  | .bit _ tail => [tail]
+  | .cons head tail => [head, tail]
+  | .fork left right => [left, right]
+  | .bucket items => [items]
+  | .pair first second => [first, second]
+
+abbrev Heap := List Cell
+
+inductive Event
+  | load (address : Ptr) (value : Option Cell)
+  | allocate (address : Ptr) (value : Cell)
+  | copyPointer (value : Ptr)
+  | copyFlag (value : Bool)
+  | control
+  deriving DecidableEq, Repr
+
+def Event.references : Event → List Ptr
+  | .load p none => [p]
+  | .load p (some c) => p :: c.references
+  | .allocate p c => p :: c.references
+  | .copyPointer p => [p]
+  | .copyFlag _ => []
+  | .control => []
+
+/-- Fixed tag/boolean overhead is four bits; addresses and fields are charged
+at their actual binary lengths. This is a specified log-cost RAM instruction. -/
+def Event.bitCost (e : Event) : ℕ := 4 + (e.references.map Nat.size).sum
+
+structure Run (α : Type*) where
+  value : α
+  heap : Heap
+  trace : List Event
+
+def withEvents (events : List Event) (r : Run α) : Run α :=
+  ⟨r.value, r.heap, events ++ r.trace⟩
+
+def sequenceRuns (first : Run α) (second : Run β) : Run β :=
+  ⟨second.value, second.heap, first.trace ++ second.trace⟩
+
+/-! ## Explicit bit-stack cost of recursive calls -/
+
+inductive Word
+  | pointer (p : Ptr)
+  | flag (b : Bool)
+  deriving DecidableEq, Repr
+
+def Word.symbols : Word → List (Option Bool)
+  | .pointer p => some false :: (p.bits.map some ++ [none])
+  | .flag b => [some true, some b, none]
+
+def frameSymbols (frame : List Word) : List (Option Bool) := frame.flatMap Word.symbols
+
+inductive StackInstruction
+  | heap (e : Event)
+  | push (symbol : Option Bool)
+  | pop (symbol : Option Bool)
+  | tick
+  deriving DecidableEq, Repr
+
+def StackInstruction.bitCost : StackInstruction → ℕ
+  | .heap e => e.bitCost
+  | .push _ => 1
+  | .pop _ => 1
+  | .tick => 1
+
+def stackBitCost (code : List StackInstruction) : ℕ := (code.map StackInstruction.bitCost).sum
+
+inductive CallTree
+  | code (events : List Event)
+  | seq (first second : CallTree)
+  | call (savedRegisters : List Word) (body : CallTree)
+
+def CallTree.memoryTrace : CallTree → List Event
+  | .code events => events
+  | .seq a b => a.memoryTrace ++ b.memoryTrace
+  | .call _ body => body.memoryTrace
+
+def CallTree.compile : CallTree → List StackInstruction
+  | .code events => events.map StackInstruction.heap
+  | .seq a b => a.compile ++ b.compile
+  | .call frame body =>
+      [.tick] ++ (frameSymbols frame).reverse.map .push ++ body.compile ++
+        (frameSymbols frame).map .pop ++ [.tick]
+
+end WeightedMIS.PointerMemory
+
+/-! ## The sixteen-register machine -/
+
+namespace WeightedMIS.RegisterMachine
+
+open WeightedMIS.PointerMemory
+
+abbrev Register := Fin 16
+
+inductive Value
+  | pointer (p : Ptr)
+  | flag (b : Bool)
+  deriving DecidableEq, Repr
+
+abbrev Registers := Register → Value
+
+def Value.word : Value → Word
+  | .pointer p => .pointer p
+  | .flag b => .flag b
+
+/-- A register transfer reads and writes its bits; both transfers are recorded. -/
+def Value.moves : Value → List Event
+  | .pointer p => [.copyPointer p, .copyPointer p]
+  | .flag b => [.copyFlag b, .copyFlag b]
+
+def Value.asPointer : Value → Option Ptr
+  | .pointer p => some p
+  | .flag _ => none
+
+def Value.asFlag : Value → Option Bool
+  | .pointer _ => none
+  | .flag b => some b
+
+inductive Atom
+  | register (r : Register)
+  | null
+  | flag (b : Bool)
+  deriving DecidableEq, Repr
+
+def Atom.eval (regs : Registers) : Atom → Value
+  | .register r => regs r
+  | .null => .pointer 0
+  | .flag b => .flag b
+
+def values (regs : Registers) (args : List Atom) : List Value := args.map (Atom.eval regs)
+
+def moves (vs : List Value) : List Event := vs.flatMap Value.moves
+
+def initialRegisters (args : List Value) : Registers := fun r =>
+  args[r.val]?.getD (.pointer 0)
+
+/-- Return locations are fixed pieces of syntax. The saved caller bank is
+restored before these result registers are overwritten. -/
+def bindResults : Registers → List Register → List Value → Registers
+  | regs, r :: rs, v :: vs => bindResults (Function.update regs r v) rs vs
+  | regs, _, _ => regs
+
+def savedRegisters (regs : Registers) : List Word :=
+  (List.finRange 16).map (fun r => (regs r).word)
+
+inductive CellExpr
+  | nil
+  | bit (value tail : Atom)
+  | cons (head tail : Atom)
+  | fork (left right : Atom)
+  | bucket (items : Atom)
+  | pair (first second : Atom)
+  deriving DecidableEq, Repr
+
+def CellExpr.args : CellExpr → List Atom
+  | .nil => []
+  | .bit b t => [b, t]
+  | .cons a t => [a, t]
+  | .fork l r => [l, r]
+  | .bucket p => [p]
+  | .pair a b => [a, b]
+
+def CellExpr.eval (regs : Registers) : CellExpr → Option Cell
+  | .nil => some .nil
+  | .bit b t => do return .bit (← (b.eval regs).asFlag) (← (t.eval regs).asPointer)
+  | .cons a t => do return .cons (← (a.eval regs).asPointer) (← (t.eval regs).asPointer)
+  | .fork l r => do return .fork (← (l.eval regs).asPointer) (← (r.eval regs).asPointer)
+  | .bucket p => do return .bucket (← (p.eval regs).asPointer)
+  | .pair a b => do return .pair (← (a.eval regs).asPointer) (← (b.eval regs).asPointer)
+
+structure Cases (α : Type*) where
+  nil : α
+  bit : α
+  cons : α
+  fork : α
+  bucket : α
+  pair : α
+
+def Cases.select (branches : Cases α) : Cell → α
+  | .nil => branches.nil
+  | .bit _ _ => branches.bit
+  | .cons _ _ => branches.cons
+  | .fork _ _ => branches.fork
+  | .bucket _ => branches.bucket
+  | .pair _ _ => branches.pair
+
+/-- Decoding a tag transfers only its at-most-two pointer fields and one bit. -/
+def decoded : Cell → Value × Value × Value
+  | .nil => (.pointer 0, .pointer 0, .flag false)
+  | .bit b tail => (.pointer tail, .pointer 0, .flag b)
+  | .cons a tail => (.pointer a, .pointer tail, .flag false)
+  | .fork l r => (.pointer l, .pointer r, .flag false)
+  | .bucket items => (.pointer items, .pointer 0, .flag false)
+  | .pair a b => (.pointer a, .pointer b, .flag false)
+
+def loadRegisters (regs : Registers) (first second bit : Register) (c : Cell) : Registers :=
+  let d := decoded c
+  Function.update (Function.update (Function.update regs first d.1) second d.2.1) bit d.2.2
+
+def decodedMoves (c : Cell) : List Event :=
+  let d := decoded c
+  d.1.moves ++ d.2.1.moves ++ d.2.2.moves
+
+inductive Command (procedures : ℕ)
+  | fail
+  | ret (outputs : List Atom)
+  | copy (destination : Register) (source : Atom) (next : Command procedures)
+  | allocate (destination : Register) (cell : CellExpr) (next : Command procedures)
+  | load (address : Atom) (first second bit : Register) (branches : Cases (Command procedures))
+  | branch (test : Atom) (yes no : Command procedures)
+  | call (procedure : Fin procedures) (arguments : List Atom) (results : List Register)
+      (next : Command procedures)
+
+/-- A finite table of finite, closed procedure bodies. -/
+abbrev Code (procedures : ℕ) := Fin procedures → Command procedures
+
+/-- The interpreter has no oracle/host-function instruction. Each rule fixes
+its next command from syntax and the values actually loaded from memory. -/
+inductive Exec {procedures : ℕ} (code : Code procedures) :
+    Heap → Registers → Command procedures → Run (List Value) → Prop
+  | ret (h : Heap) (regs : Registers) (outputs : List Atom) :
+      Exec code h regs (.ret outputs)
+        ⟨values regs outputs, h, .control :: moves (values regs outputs)⟩
+  | copy {h : Heap} {regs : Registers} {dst : Register} {src : Atom}
+      {next : Command procedures} {result : Run (List Value)}
+      (rest : Exec code h (Function.update regs dst (src.eval regs)) next result) :
+      Exec code h regs (.copy dst src next)
+        (withEvents (.control :: (src.eval regs).moves) result)
+  | allocate {h : Heap} {regs : Registers} {dst : Register} {expr : CellExpr}
+      {c : Cell} {next : Command procedures} {result : Run (List Value)}
+      (evaluated : expr.eval regs = some c)
+      (rest : Exec code (h ++ [c]) (Function.update regs dst (.pointer h.length)) next result) :
+      Exec code h regs (.allocate dst expr next)
+        (withEvents (.control :: (moves (values regs expr.args) ++
+          [.allocate h.length c] ++ (Value.pointer h.length).moves)) result)
+  | load {h : Heap} {regs : Registers} {address : Atom} {p : Ptr} {c : Cell}
+      {first second bit : Register} {branches : Cases (Command procedures)}
+      {result : Run (List Value)}
+      (evaluated : address.eval regs = .pointer p) (loaded : h[p]? = some c)
+      (rest : Exec code h (loadRegisters regs first second bit c) (branches.select c) result) :
+      Exec code h regs (.load address first second bit branches)
+        (withEvents (.control :: ((Value.pointer p).moves ++ [.load p (some c)] ++ decodedMoves c)) result)
+  | branch {h : Heap} {regs : Registers} {test : Atom} {b : Bool}
+      {yes no : Command procedures} {result : Run (List Value)}
+      (evaluated : test.eval regs = .flag b)
+      (rest : Exec code h regs (if b then yes else no) result) :
+      Exec code h regs (.branch test yes no)
+        (withEvents (.control :: (Value.flag b).moves) result)
+  | call {h : Heap} {regs : Registers} {procedure : Fin procedures}
+      {arguments : List Atom} {results : List Register} {next : Command procedures}
+      {callee continuation : Run (List Value)}
+      (body : Exec code h (initialRegisters (values regs arguments)) (code procedure) callee)
+      (rest : Exec code callee.heap (bindResults regs results callee.value) next continuation) :
+      Exec code h regs (.call procedure arguments results next)
+        (withEvents (.control :: moves (values regs arguments)) (sequenceRuns callee continuation))
+
+/-- Invoke one fixed entry of a closed code table. -/
+def Executes {procedures : ℕ} (code : Code procedures) (entry : Fin procedures)
+    (h : Heap) (arguments : List Value) (result : Run (List Value)) : Prop :=
+  Exec code h (initialRegisters arguments) (code entry) result
+
+end WeightedMIS.RegisterMachine
+
+namespace WeightedMIS.RegisterMachine
+
+open WeightedMIS.PointerMemory
+
+/-- The interpreter with its actual caller-frame tree exposed. -/
+inductive FramedExec {procedures : ℕ} (code : Code procedures) :
+    Heap → Registers → Command procedures → Run (List Value) → CallTree → Prop
+  | ret (h : Heap) (regs : Registers) (outputs : List Atom) :
+      FramedExec code h regs (.ret outputs)
+        ⟨values regs outputs, h, .control :: moves (values regs outputs)⟩
+        (.code (.control :: moves (values regs outputs)))
+  | copy {h : Heap} {regs : Registers} {dst : Register} {src : Atom}
+      {next : Command procedures} {result : Run (List Value)} {tree : CallTree}
+      (rest : FramedExec code h (Function.update regs dst (src.eval regs)) next result tree) :
+      FramedExec code h regs (.copy dst src next)
+        (withEvents (.control :: (src.eval regs).moves) result)
+        (.seq (.code (.control :: (src.eval regs).moves)) tree)
+  | allocate {h : Heap} {regs : Registers} {dst : Register} {expr : CellExpr}
+      {c : Cell} {next : Command procedures} {result : Run (List Value)} {tree : CallTree}
+      (evaluated : expr.eval regs = some c)
+      (rest : FramedExec code (h ++ [c]) (Function.update regs dst (.pointer h.length)) next result tree) :
+      FramedExec code h regs (.allocate dst expr next)
+        (withEvents (.control :: (moves (values regs expr.args) ++
+          [.allocate h.length c] ++ (Value.pointer h.length).moves)) result)
+        (.seq (.code (.control :: (moves (values regs expr.args) ++
+          [.allocate h.length c] ++ (Value.pointer h.length).moves))) tree)
+  | load {h : Heap} {regs : Registers} {address : Atom} {p : Ptr} {c : Cell}
+      {first second bit : Register} {branches : Cases (Command procedures)}
+      {result : Run (List Value)} {tree : CallTree}
+      (evaluated : address.eval regs = .pointer p) (loaded : h[p]? = some c)
+      (rest : FramedExec code h (loadRegisters regs first second bit c) (branches.select c) result tree) :
+      FramedExec code h regs (.load address first second bit branches)
+        (withEvents (.control :: ((Value.pointer p).moves ++ [.load p (some c)] ++ decodedMoves c)) result)
+        (.seq (.code (.control :: ((Value.pointer p).moves ++ [.load p (some c)] ++ decodedMoves c))) tree)
+  | branch {h : Heap} {regs : Registers} {test : Atom} {b : Bool}
+      {yes no : Command procedures} {result : Run (List Value)} {tree : CallTree}
+      (evaluated : test.eval regs = .flag b)
+      (rest : FramedExec code h regs (if b then yes else no) result tree) :
+      FramedExec code h regs (.branch test yes no)
+        (withEvents (.control :: (Value.flag b).moves) result)
+        (.seq (.code (.control :: (Value.flag b).moves)) tree)
+  | call {h : Heap} {regs : Registers} {procedure : Fin procedures}
+      {arguments : List Atom} {results : List Register} {next : Command procedures}
+      {callee continuation : Run (List Value)} {bodyTree restTree : CallTree}
+      (body : FramedExec code h (initialRegisters (values regs arguments)) (code procedure) callee bodyTree)
+      (rest : FramedExec code callee.heap (bindResults regs results callee.value) next continuation restTree) :
+      FramedExec code h regs (.call procedure arguments results next)
+        (withEvents (.control :: moves (values regs arguments)) (sequenceRuns callee continuation))
+        (.seq (.code (.control :: moves (values regs arguments)))
+          (.seq (.call (savedRegisters regs) bodyTree) restTree))
+
+end WeightedMIS.RegisterMachine
+
+/-! ## Surface maps, drawings and independent sets -/
+
+namespace WeightedMIS.Spec
+
+/-! ## Flags -/
+
+/-- A flag of a graph with edge labels `E`: an edge, one of its two sides, and
+one of its two endpoints. Endpoint `false` is the left end and `true` the
+right end of the edge, even when the edge is a loop. Every edge has exactly
+four flags. -/
+structure Flag (E : Type) where
+  /-- The edge carrying the flag. -/
+  edge : E
+  /-- Which of the two sides of the edge band. -/
+  side : Bool
+  /-- Which end of the edge: `false` is the left end, `true` the right end. -/
+  endpoint : Bool
+
+namespace Flag
+
+/-- The flag at the other end of the same edge side. -/
+def along {E : Type} (x : Flag E) : Flag E := ⟨x.edge, x.side, !x.endpoint⟩
+
+/-- The flag on the other side of the edge at the same end. -/
+def across {E : Type} (x : Flag E) : Flag E := ⟨x.edge, !x.side, x.endpoint⟩
+
+/-- Relabel the edge of a flag, keeping its side and endpoint. -/
+def map {E E' : Type} (f : E → E') (x : Flag E) : Flag E' := ⟨f x.edge, x.side, x.endpoint⟩
+
+end Flag
+
+/-! ## Maps of closed surfaces -/
+
+/-- Combinatorial data of a graph embedded in a surface: vertices
+`Fin vertices`, edges `Fin edges` with left and right endpoints, and the corner
+pairing of flags. Which data describe a closed surface is the predicate
+`Map.IsClosedSurface`. -/
+structure Map where
+  /-- Number of vertices; the vertices are `Fin vertices`. -/
+  vertices : ℕ
+  /-- Number of edges; the edges are `Fin edges`. -/
+  edges : ℕ
+  /-- Left endpoint of each edge. -/
+  left : Fin edges → Fin vertices
+  /-- Right endpoint of each edge (equal to the left one for a loop). -/
+  right : Fin edges → Fin vertices
+  /-- The corner pairing: `corner x` is the flag following `x` around a face
+  corner at the vertex of `x`. -/
+  corner : Flag (Fin edges) → Flag (Fin edges)
+
+namespace Map
+
+/-- The graph vertex at which a flag sits. -/
+def vertexOf (A : Map) (x : Flag (Fin A.edges)) : Fin A.vertices :=
+  if x.endpoint then A.right x.edge else A.left x.edge
+
+/-- Two vertices are adjacent when some edge joins them (a loop makes its
+vertex adjacent to itself). -/
+def Adjacent (A : Map) (u v : Fin A.vertices) : Prop :=
+  ∃ e : Fin A.edges, (A.left e = u ∧ A.right e = v) ∨ (A.left e = v ∧ A.right e = u)
+
+/-- One step in the link of a vertex: cross the edge band or turn through a
+corner. -/
+def LinkStep (A : Map) (x y : Flag (Fin A.edges)) : Prop :=
+  y = x.across ∨ y = A.corner x
+
+/-- The map describes a connected graph cellularly embedded in a closed
+surface:
+* there is at least one edge;
+* `corner` is a fixed-point-free involution preserving the vertex of a flag;
+* the flags at each vertex form one link (one cycle alternating `across` and
+  `corner`), so a neighbourhood of every vertex is a disk;
+* the graph is connected. -/
+structure IsClosedSurface (A : Map) : Prop where
+  has_edge : 0 < A.edges
+  corner_involutive : ∀ x : Flag (Fin A.edges), A.corner (A.corner x) = x
+  corner_ne : ∀ x : Flag (Fin A.edges), A.corner x ≠ x
+  corner_vertex : ∀ x : Flag (Fin A.edges), A.vertexOf (A.corner x) = A.vertexOf x
+  links : ∀ x y : Flag (Fin A.edges), A.vertexOf x = A.vertexOf y →
+    Relation.ReflTransGen A.LinkStep x y
+  connected : ∀ u v : Fin A.vertices, Relation.ReflTransGen A.Adjacent u v
+
+/-- One step along a face: traverse an edge side or turn through a corner. -/
+def FaceStep (A : Map) (x y : Flag (Fin A.edges)) : Prop :=
+  y = x.along ∨ y = A.corner x
+
+/-- The faces of the map. A face is an orbit of flags under `along` and
+`corner`; it consists of all flags on the closed facial walk, traversed in
+either direction. (Each face is one face, not one of its two orientations.) -/
+def Face (A : Map) : Type := Quot A.FaceStep
+
+/-- Euler genus `γ = 2 - χ = E + 2 - V - F` of the closed surface obtained by
+capping every facial walk with a disk. For a closed connected surface this
+is never negative, so the natural-number subtraction does not truncate. -/
+noncomputable def eulerGenus (A : Map) : ℕ := A.edges + 2 - (A.vertices + Nat.card A.Face)
+
+/-- The surface is orientable: the flags can be two-coloured so that each of
+the three involutions `along`, `across`, `corner` changes the colour. -/
+def Orientable (A : Map) : Prop :=
+  ∃ c : Flag (Fin A.edges) → Bool, ∀ x : Flag (Fin A.edges),
+    c x.along ≠ c x ∧ c x.across ≠ c x ∧ c (A.corner x) ≠ c x
+
+/-- Rotation around a vertex: turn through the corner, then cross to the other
+side of the next edge. -/
+def turn (A : Map) (x : Flag (Fin A.edges)) : Flag (Fin A.edges) := (A.corner x).across
+
+/-- The corner pairing of the subdrawing formed by the edges satisfying `keep`:
+starting from a flag `x` of a kept edge, rotate around its vertex past every
+deleted edge to the first kept edge, and take its flag facing `x`. -/
+def DrawnCorner (A : Map) (keep : Fin A.edges → Prop) (x y : Flag (Fin A.edges)) : Prop :=
+  ∃ t : ℕ, 0 < t ∧ keep (A.turn^[t] x).edge ∧
+    (∀ i : ℕ, 0 < i → i < t → ¬ keep (A.turn^[i] x).edge) ∧ y = (A.turn^[t] x).across
+
+/-- Two flags lie in the same complementary region of the subdrawing formed by
+the edges satisfying `keep`: either they are on the same face of the map, or
+they are on the two sides of a deleted edge. -/
+def RegionStep (A : Map) (keep : Fin A.edges → Prop) (x y : Flag (Fin A.edges)) : Prop :=
+  A.FaceStep x y ∨ (¬ keep x.edge ∧ y = x.across)
+
+/-- The complementary regions of the subdrawing formed by the edges satisfying
+`keep`: the connected components of the surface minus the drawing, each the
+union of the faces of the map glued across the deleted edges. -/
+def Region (A : Map) (keep : Fin A.edges → Prop) : Type := Quot (A.RegionStep keep)
+
+/-- The total length of all boundary walks of a complementary region: the
+number of sides of kept edges that face this region. An edge with both sides
+in the region is counted twice; an isolated drawn vertex contributes a boundary
+walk of length zero. -/
+noncomputable def boundaryLength (A : Map) (keep : Fin A.edges → Prop) (r : A.Region keep) : ℕ :=
+  Nat.card {s : Fin A.edges × Bool //
+    keep s.1 ∧ Quot.mk (A.RegionStep keep) (⟨s.1, s.2, false⟩ : Flag (Fin A.edges)) = r}
+
+/-- The parameter `k`: the number of complementary regions of the subdrawing
+whose total boundary-walk length is odd. For a cellular drawing (all edges
+kept) these are exactly the odd faces. -/
+noncomputable def oddRegionCount (A : Map) (keep : Fin A.edges → Prop) : ℕ :=
+  Nat.card {r : A.Region keep // Odd (A.boundaryLength keep r)}
+
+end Map
+
+/-! ## Drawings and their placement in a closed surface -/
+
+/-- The input graph: vertices `Fin vertices`, edges `Fin edges` with left and
+right endpoints, and its own corner pairing of flags. Loops, multiple edges,
+isolated vertices, disconnected and noncellular drawings are allowed. -/
+structure Drawing where
+  /-- Number of vertices; the vertices are `Fin vertices`. -/
+  vertices : ℕ
+  /-- Number of edges; the edges are `Fin edges`. -/
+  edges : ℕ
+  /-- Left endpoint of each edge. -/
+  left : Fin edges → Fin vertices
+  /-- Right endpoint of each edge (equal to the left one for a loop). -/
+  right : Fin edges → Fin vertices
+  /-- The corner pairing of the drawing (its rotation system with twists). -/
+  corner : Flag (Fin edges) → Flag (Fin edges)
+
+/-- The drawing `D` lies in the closed-surface map `A`: vertices and edges of
+`D` are injectively identified with vertices and edges of `A`, compatibly with
+endpoints, and the corner pairing of `D` is the one `A` induces on the drawn
+edges. -/
+structure Drawing.In (D : Drawing) (A : Map) where
+  /-- The vertex of `A` representing each vertex of `D`. -/
+  vertexMap : Fin D.vertices → Fin A.vertices
+  /-- The edge of `A` representing each edge of `D`. -/
+  edgeMap : Fin D.edges → Fin A.edges
+  vertexMap_injective : Function.Injective vertexMap
+  edgeMap_injective : Function.Injective edgeMap
+  left_comm : ∀ e : Fin D.edges, vertexMap (D.left e) = A.left (edgeMap e)
+  right_comm : ∀ e : Fin D.edges, vertexMap (D.right e) = A.right (edgeMap e)
+  corner_comm : ∀ x : Flag (Fin D.edges),
+    A.DrawnCorner (fun e : Fin A.edges => ∃ d : Fin D.edges, edgeMap d = e)
+      (x.map edgeMap) ((D.corner x).map edgeMap)
+
+/-- The edges of `A` that belong to the drawing. -/
+def Drawing.In.drawn {D : Drawing} {A : Map} (W : D.In A) (e : Fin A.edges) : Prop :=
+  ∃ d : Fin D.edges, W.edgeMap d = e
+
+namespace Drawing
+
+/-- No edge has both endpoints in `I`. In particular a vertex with a loop is
+never in an independent set. -/
+def Independent (D : Drawing) (I : Finset (Fin D.vertices)) : Prop :=
+  ∀ e : Fin D.edges, ¬ (D.left e ∈ I ∧ D.right e ∈ I)
+
+/-- `I` is a maximum-weight independent set for the rational weights `w`. -/
+def IsMaximum (D : Drawing) (w : Fin D.vertices → ℚ) (I : Finset (Fin D.vertices)) : Prop :=
+  D.Independent I ∧
+    ∀ J : Finset (Fin D.vertices), D.Independent J → ∑ v ∈ J, w v ≤ ∑ v ∈ I, w v
+
+/-- Combinatorial input size `N = |V| + |E| + 1`. (The number of faces of the
+drawing is at most `4|E|`, so including it changes `N` by a constant factor.) -/
+def size (D : Drawing) : ℕ := D.vertices + D.edges + 1
+
+end Drawing
+
+/-- Total binary encoding length `L` of rational weights: the bit lengths of
+the absolute numerators and the denominators, in lowest terms. -/
+def weightLength {n : ℕ} (w : Fin n → ℚ) : ℕ :=
+  ∑ v : Fin n, ((w v).num.natAbs.size + (w v).den.size)
+
+/-- The parameter exponent `D(γ, k) = max {0, γ + k - 2, γ - 1}`; natural-number
+subtraction implements the truncation at zero. -/
+def exponentD (γ k : ℕ) : ℕ := max (γ + k - 2) (γ - 1)
+
+/-- The orientable exponent `max {0, γ + k - 2}`; natural-number subtraction
+implements the truncation at zero. -/
+def orientableExponentD (γ k : ℕ) : ℕ := γ + k - 2
+
+end WeightedMIS.Spec
+
+/-! ## Encoding, output, cost and the main claim -/
+
+namespace WeightedMIS.Spec
+
+open WeightedMIS.PointerMemory WeightedMIS.RegisterMachine
+
+/-! ## Writing the input heap -/
+
+/-- The `w` least significant binary digits of `k`, most significant first. -/
+def bitsOf : ℕ → ℕ → List Bool
+  | 0, _ => []
+  | w + 1, k => k.testBit w :: bitsOf w k
+
+/-- Append one cell; return the extended heap and the new address. -/
+def putCell (c : Cell) (h : Heap) : Heap × Ptr := (h ++ [c], h.length)
+
+/-- Write a binary word as a chain of bit cells ending in the shared empty
+cell at address `0`. -/
+def putBits : List Bool → Heap → Heap × Ptr
+  | [], h => (h, 0)
+  | b :: bs, h =>
+    let r := putBits bs h
+    putCell (.bit b r.2) r.1
+
+/-- Write a linked list whose items are written by `put`. -/
+def putList {α : Type} (put : α → Heap → Heap × Ptr) : List α → Heap → Heap × Ptr
+  | [], h => (h, 0)
+  | x :: xs, h =>
+    let r := putList put xs h
+    let s := put x r.1
+    putCell (.cons s.2 r.2) s.1
+
+/-- Write two components and a pair cell referring to them. -/
+def putPair (a b : Heap → Heap × Ptr) (h : Heap) : Heap × Ptr :=
+  let ra := a h
+  let rb := b ra.1
+  putCell (.pair ra.2 rb.2) rb.1
+
+/-- The common width of vertex and edge indices. -/
+def indexWidth (D : Drawing) : ℕ := Nat.size (D.vertices + D.edges)
+
+/-- The common width of the absolute numerators and denominators. -/
+def weightWidth {n : ℕ} (w : Fin n → ℚ) : ℕ :=
+  Finset.univ.sup fun v => max (w v).num.natAbs.size (w v).den.size
+
+/-- The key of a flag: its side bit, its endpoint bit, and its edge word. -/
+def flagBits (W : ℕ) {m : ℕ} (x : Flag (Fin m)) : List Bool :=
+  x.side :: x.endpoint :: bitsOf W x.edge.val
+
+/-- The record of edge `e`: its word, its endpoint words, and the keys of the
+corner partners of its four flags, as nested pair cells. -/
+def putEdge (D : Drawing) (W : ℕ) (e : Fin D.edges) : Heap → Heap × Ptr :=
+  let corner (s t : Bool) := putBits (flagBits W (D.corner ⟨e, s, t⟩))
+  putPair (putBits (bitsOf W e.val))
+    (putPair (putBits (bitsOf W (D.left e).val))
+      (putPair (putBits (bitsOf W (D.right e).val))
+        (putPair (putPair (corner false false) (corner false true))
+          (putPair (corner true false) (corner true true)))))
+
+/-- A rational in lowest terms: a pair of a sign cell (holding the absolute
+numerator) and the denominator. -/
+def putRat (width : ℕ) (q : ℚ) : Heap → Heap × Ptr :=
+  putPair
+    (fun h =>
+      let r := putBits (bitsOf width q.num.natAbs) h
+      putCell (.bit (decide (q.num < 0)) r.2) r.1)
+    (putBits (bitsOf width q.den))
+
+/-- The input heap and the address of its root record. The heap starts with
+the shared empty cell at address `0`. -/
+def encode (D : Drawing) (w : Fin D.vertices → ℚ) : Heap × Ptr :=
+  putPair (putList (fun v => putBits (bitsOf (indexWidth D) v)) (List.range D.vertices))
+    (putPair (putList (putEdge D (indexWidth D)) (List.finRange D.edges))
+      (putList (putRat (weightWidth w)) (List.ofFn w))) [.nil]
+
+/-! ## Reading the output -/
+
+/-- The cells at `p` form the binary word `bs`. -/
+inductive WordAt (h : Heap) : Ptr → List Bool → Prop
+  | nil {p : Ptr} : h[p]? = some .nil → WordAt h p []
+  | cons {p q : Ptr} {b : Bool} {bs : List Bool} :
+      h[p]? = some (.bit b q) → WordAt h q bs → WordAt h p (b :: bs)
+
+/-- The value of a binary word written most significant bit first. -/
+def bitsValue (bs : List Bool) : ℕ := bs.foldl (fun a b => 2 * a + if b then 1 else 0) 0
+
+/-- The cells at `p` form a linked list of binary words with values `l`. -/
+inductive NumbersAt (h : Heap) : Ptr → List ℕ → Prop
+  | nil {p : Ptr} : h[p]? = some .nil → NumbersAt h p []
+  | cons {p a q : Ptr} {bs : List Bool} {l : List ℕ} :
+      h[p]? = some (.cons a q) → WordAt h a bs → NumbersAt h q l → NumbersAt h p (bitsValue bs :: l)
+
+/-! ## Runs and the main claim -/
+
+/-- A run of procedure `entry` of `code` on the encoded input, together with
+its call tree recording every saved caller frame. -/
+def Runs {P : ℕ} (code : Code P) (entry : Fin P) (D : Drawing) (w : Fin D.vertices → ℚ)
+    (r : Run (List Value)) (t : CallTree) : Prop :=
+  FramedExec code (encode D w).1 (initialRegisters [.pointer (encode D w).2]) (code entry) r t
+
+/-- The run returns a single pointer to a list of words denoting the vertex set `I`. -/
+def Outputs (D : Drawing) (r : Run (List Value)) (I : Finset (Fin D.vertices)) : Prop :=
+  ∃ (p : Ptr) (l : List ℕ), r.value = [.pointer p] ∧ NumbersAt r.heap p l ∧
+    ∀ v : Fin D.vertices, v ∈ I ↔ v.val ∈ l
+
+/-- **Main claim** (Theorem 1 of the source). One fixed finite program, a
+computable function `f`, and absolute constants `C` and `b` such that for every
+closed-surface map `A` of Euler genus `γ`, every drawing `D` in `A` whose
+complement has `k` regions of odd total boundary length, and all rational
+weights, the program runs on the encoded input, every run returns a
+maximum-weight independent set, and every run costs at most
+`f (γ + k) · N ^ (D(γ, k) + C) · (L + 1) ^ b` bit operations, with
+`N = |V| + |E| + 1` and `L` the weight encoding length; on an orientable
+surface the exponent `D(γ, k)` improves to `max {0, γ + k - 2}`. -/
+def MainClaim : Prop :=
+  ∃ (P : ℕ) (code : Code P) (entry : Fin P) (f : ℕ → ℕ) (C b : ℕ), Computable f ∧
+    ∀ (A : Map), A.IsClosedSurface → ∀ (D : Drawing) (W : D.In A) (w : Fin D.vertices → ℚ),
+      (∃ r t, Runs code entry D w r t) ∧
+      ∀ r t, Runs code entry D w r t →
+        (∃ I, Outputs D r I ∧ D.IsMaximum w I) ∧
+        stackBitCost t.compile ≤
+          f (A.eulerGenus + A.oddRegionCount W.drawn) *
+            D.size ^ (exponentD A.eulerGenus (A.oddRegionCount W.drawn) + C) *
+            (weightLength w + 1) ^ b ∧
+        (A.Orientable → stackBitCost t.compile ≤
+          f (A.eulerGenus + A.oddRegionCount W.drawn) *
+            D.size ^ (orientableExponentD A.eulerGenus (A.oddRegionCount W.drawn) + C) *
+            (weightLength w + 1) ^ b)
+
+end WeightedMIS.Spec
+
+end

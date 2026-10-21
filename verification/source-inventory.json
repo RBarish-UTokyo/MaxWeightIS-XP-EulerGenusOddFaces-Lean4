@@ -1,0 +1,2357 @@
+[
+ {
+  "path": "Audit.lean",
+  "lines": 6062,
+  "sha256": "62becfa0fcb09afe6543d876eb39df04bfbbdd3df08d25808475ce632a7fcf90"
+ },
+ {
+  "path": "Challenge.lean",
+  "lines": 707,
+  "sha256": "06f72f079b84b6010aa63a064c7d4afa0647033c76fc56a899d4bc736e3713e4"
+ },
+ {
+  "path": "Solution.lean",
+  "lines": 29,
+  "sha256": "f14c8a98309843a91c9cee0eb11f0561e2875237f50475ce02b7168b3d56b54e"
+ },
+ {
+  "path": "WeightedMIS.lean",
+  "lines": 469,
+  "sha256": "16e9efc3a198ade7a5956be7ec065aef4a8c6358aa87f5948730f31f72c878e2"
+ },
+ {
+  "path": "WeightedMIS/AllHalfEncoded.lean",
+  "lines": 205,
+  "sha256": "c08120869a34d6c30ea23bc98242841710854c92c73b9ea445efdbf7378f1fa1"
+ },
+ {
+  "path": "WeightedMIS/ArithmeticProgram.lean",
+  "lines": 132,
+  "sha256": "f677bb96b02af989fa874c1a228320e18c86f8db52ded8eeabf7fabf8e78a4f5"
+ },
+ {
+  "path": "WeightedMIS/BinaryGCD.lean",
+  "lines": 142,
+  "sha256": "5a4c0ce6f8ec8ae5df9af5198bf6999047abbe23d4629cf71e13642735f58164"
+ },
+ {
+  "path": "WeightedMIS/BinaryRational.lean",
+  "lines": 126,
+  "sha256": "910e9f29701092438ba96a8360e048672978ff90268f20777117ddd3b830fb1e"
+ },
+ {
+  "path": "WeightedMIS/BinaryRationalArithmetic.lean",
+  "lines": 240,
+  "sha256": "e102b0c3401fd47985d6e66749776267cdf30503ecc5ca4fda6e7a5c88a782a4"
+ },
+ {
+  "path": "WeightedMIS/BinaryRationalInterface.lean",
+  "lines": 148,
+  "sha256": "41220c21229f4beaae63c7dc9bda59ac92e071f4e83dedb85057df9c2da1af00"
+ },
+ {
+  "path": "WeightedMIS/BipartiteRecovery.lean",
+  "lines": 140,
+  "sha256": "79d97aa785b995d8173674926fcf6d6ff01fee8fff648102fc8c1b7a5489b250"
+ },
+ {
+  "path": "WeightedMIS/BoundedCycles.lean",
+  "lines": 175,
+  "sha256": "6115a1984040ae3e3f4ca6cc2f971c4f681e4a618a47a90dc7336ec69d6de026"
+ },
+ {
+  "path": "WeightedMIS/BoundedKernel.lean",
+  "lines": 178,
+  "sha256": "83a62dc881dc15ccaafa74e30ef507aa4aff6f772bad84d42ecd73fcd2a5f870"
+ },
+ {
+  "path": "WeightedMIS/CachedPreprocessing.lean",
+  "lines": 82,
+  "sha256": "32d51dca0e96cf7f16273e8ae5ecef82feafb46d9474e77eb9704384f50945af"
+ },
+ {
+  "path": "WeightedMIS/CapRegions.lean",
+  "lines": 229,
+  "sha256": "072b09803a01fb321a29cb50ead5331fc726b5b2771bfccea6359849fb8cc695"
+ },
+ {
+  "path": "WeightedMIS/ColumnEncoding.lean",
+  "lines": 95,
+  "sha256": "bd2e95af2e52c662b558b001d4b6387765fd481a3382652dcb8ca5755109196f"
+ },
+ {
+  "path": "WeightedMIS/CompiledGraphConstruction.lean",
+  "lines": 130,
+  "sha256": "f3a4886bd5ce565542a5518436d97881faabfd0374320f52c32d6dcb43be26f3"
+ },
+ {
+  "path": "WeightedMIS/CompiledInsert.lean",
+  "lines": 183,
+  "sha256": "8e7e0703a152b5184e5ab11327a94fdd93aaf66f28eb50baf2113d8a6350a291"
+ },
+ {
+  "path": "WeightedMIS/CompiledJoin.lean",
+  "lines": 118,
+  "sha256": "d80a1208cdd0bab50398db3a8b71490b60b17ef4e9950e8336104ed8d63bb55b"
+ },
+ {
+  "path": "WeightedMIS/CompiledLookup.lean",
+  "lines": 101,
+  "sha256": "4e3f51924e9e2ecbed54e8a0140953343207ee393d96c9358dc0249ed2b6b41d"
+ },
+ {
+  "path": "WeightedMIS/CompiledPop.lean",
+  "lines": 226,
+  "sha256": "89f1f684bec23fc65c01fecd384f130c092b90a8d0209ceb8d6e85ecd4115dfc"
+ },
+ {
+  "path": "WeightedMIS/CompiledRibbonEnumeration.lean",
+  "lines": 80,
+  "sha256": "f1c7bbe7003dfeb58cd7137b89e24fd90fdc7be5a627c31f24afce6f9a86f0ac"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplateColumn.lean",
+  "lines": 125,
+  "sha256": "e53206582cc21a6de5f0d80b57c8247db9db2fa2695c7571852baa45b7b6300b"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplateEmit.lean",
+  "lines": 52,
+  "sha256": "0fc657a1e7f6825557b47f91296975306baf637f8bc2320e4860f901079b9b86"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplateList.lean",
+  "lines": 129,
+  "sha256": "82837dfaabc03a71378eb98c9e9cf3eed9677aaa103043ab1898f7879b28f7bf"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplatePrimitives.lean",
+  "lines": 164,
+  "sha256": "87586012461ac1562299dcda2d4561ba1218dbc9a7beff0fb4e9d03e163cfe0b"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplateProgram.lean",
+  "lines": 66,
+  "sha256": "650119f55bebb39ef5eca72f19018803551ec3277c47f1b95cac5b303cc28701"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplateSemantics.lean",
+  "lines": 61,
+  "sha256": "bd9d9220048101298703ddb92307d1178ef643705ef2cdd8bcc00b68e7eb0d98"
+ },
+ {
+  "path": "WeightedMIS/CompiledTemplates.lean",
+  "lines": 130,
+  "sha256": "fe9433eac28589e8f15540e5236f0345128b9952e0470e6302d5f04a2b12a619"
+ },
+ {
+  "path": "WeightedMIS/CompiledTrie.lean",
+  "lines": 126,
+  "sha256": "b5b364390c57a53a23d19c17dd68cd4666a786a8bc244d80a5529c731c095510"
+ },
+ {
+  "path": "WeightedMIS/Complement.lean",
+  "lines": 74,
+  "sha256": "0604a6b02c82654cece8aeda088f261ae3db07d245e28d65a16d797266ea0f80"
+ },
+ {
+  "path": "WeightedMIS/ComplementCaps.lean",
+  "lines": 130,
+  "sha256": "be8b8dda641c0ce43c79b3bd6cb70d34f282a055126652a7abbe3a5b22d2ad71"
+ },
+ {
+  "path": "WeightedMIS/ComplementEuler.lean",
+  "lines": 224,
+  "sha256": "7355b5c660ae1dc4e47d7861d0187861ab4f87bc9501f905fed5cf33f2910a49"
+ },
+ {
+  "path": "WeightedMIS/ComplementWidth.lean",
+  "lines": 115,
+  "sha256": "9d2c5980fc9b2448d0d9afbd64600541b11db3549cc8634fb79d041d2a31ee31"
+ },
+ {
+  "path": "WeightedMIS/ComponentAssembly.lean",
+  "lines": 166,
+  "sha256": "b00a4a8c464f5ba64e73e10c08ed0984f526b6eeda5acccc320b9870423f2e80"
+ },
+ {
+  "path": "WeightedMIS/ComponentBoundary.lean",
+  "lines": 68,
+  "sha256": "4605bd5e5c20a3e305eb633264217a9f476b0f787d7d2dd86dc6486291fa214d"
+ },
+ {
+  "path": "WeightedMIS/ComponentTable.lean",
+  "lines": 99,
+  "sha256": "d2446e00e589574b7e5a3ed5086f35b608eca4fb746643f44cf3c283df98d06d"
+ },
+ {
+  "path": "WeightedMIS/ComputedColumns.lean",
+  "lines": 48,
+  "sha256": "cc9a7c1b02bbf5a44ff5479d568f0ab2a8438575943926846217dcb76400f27b"
+ },
+ {
+  "path": "WeightedMIS/ComputedComponentRibbon.lean",
+  "lines": 71,
+  "sha256": "1f259bb4b5a4c358e955b974d08d3638cb5d40a31ab4b947cf3b76a8962d03f8"
+ },
+ {
+  "path": "WeightedMIS/ComputedComponents.lean",
+  "lines": 209,
+  "sha256": "196017f1fc6e1acfaef3b00078fd30d0927d11785b31d60daae4c28741bf476e"
+ },
+ {
+  "path": "WeightedMIS/ComputedDrawingParameters.lean",
+  "lines": 143,
+  "sha256": "a140f6d9add98c600309244685488d6e866c81a1f806b2324b67ca321d8a84bb"
+ },
+ {
+  "path": "WeightedMIS/ComputedDrawingTransfer.lean",
+  "lines": 88,
+  "sha256": "299e5ecc9078d2d60f7c3d04efc11568236bcd7d023b263b254a447b893a25b9"
+ },
+ {
+  "path": "WeightedMIS/ComputedEmbeddedMatrices.lean",
+  "lines": 178,
+  "sha256": "f0d5c25ab973113fe51b2e626aa3af18f6e78d87cbc95971079eb2d355963dfe"
+ },
+ {
+  "path": "WeightedMIS/ComputedFaceMatrix.lean",
+  "lines": 152,
+  "sha256": "f1cfbb058b46a3b982ccd6e641d4bf5856be6fbb3735d8017358e72661fffbb5"
+ },
+ {
+  "path": "WeightedMIS/ComputedGeometryTransfer.lean",
+  "lines": 91,
+  "sha256": "1c87a161ddff17bb01abc65b21eb1dc0168e013aecdbc1574d2af6cbc933567f"
+ },
+ {
+  "path": "WeightedMIS/ComputedInduced.lean",
+  "lines": 86,
+  "sha256": "faa05ef8b5080cccb483f4c015971b87e4232a2b65e7ecab3b96244bf2bfc003"
+ },
+ {
+  "path": "WeightedMIS/ComputedKernel.lean",
+  "lines": 121,
+  "sha256": "ecdc3038a7936089b856ec118620ec1bc9b6fabd3d837d1c169124fea5d746bf"
+ },
+ {
+  "path": "WeightedMIS/ComputedOddRow.lean",
+  "lines": 196,
+  "sha256": "8c2ad2e4d19bc795fab79a48959948b1aedf27a7fd4082f31a0f68e962adab22"
+ },
+ {
+  "path": "WeightedMIS/ComputedPathRecovery.lean",
+  "lines": 58,
+  "sha256": "e4a3c00d44edb660f312497f37c9d3de938ed5e1c73526d1a4a64271bb3a14d4"
+ },
+ {
+  "path": "WeightedMIS/ComputedRecovery.lean",
+  "lines": 103,
+  "sha256": "098b29ccb6c1430a75c3969234c71ef5fa9b1f813634c9b494a2cbc30377f71f"
+ },
+ {
+  "path": "WeightedMIS/ComputedResidualGeometry.lean",
+  "lines": 131,
+  "sha256": "bddfedcdbc6c8b550cf4c5b0c7138b3fd29869cce9f326b2020c92553effa284"
+ },
+ {
+  "path": "WeightedMIS/ComputedResidualParameters.lean",
+  "lines": 98,
+  "sha256": "285512c0f9042b5a669025a05debbbb2fc4d1f90e213e0da45bc1afafd2e6230"
+ },
+ {
+  "path": "WeightedMIS/ComputedRestriction.lean",
+  "lines": 128,
+  "sha256": "9412baf04d9e2f003dfa639927cc4f6fa3ef8c616b326f8a4219091142302f4d"
+ },
+ {
+  "path": "WeightedMIS/Construction.lean",
+  "lines": 85,
+  "sha256": "7e9c6799142c601994f425c395d13671a93d2ce6db86de8dc1f952c1a0d4877c"
+ },
+ {
+  "path": "WeightedMIS/CycleSearch.lean",
+  "lines": 147,
+  "sha256": "fbb0bf4ce92db08b0cc123b39ca5a4827c4c55ec405101f47b090b014c6b6104"
+ },
+ {
+  "path": "WeightedMIS/DecomposeWords.lean",
+  "lines": 291,
+  "sha256": "42336105252dd7084948c0b3f956c5d57d1aa350f17b5bd7b6796990f86502f5"
+ },
+ {
+  "path": "WeightedMIS/Decomposition.lean",
+  "lines": 314,
+  "sha256": "f971ec3f2dd1f8c893cfdcc7997f5b4a92d06e7a955e1ce883a0835f17959218"
+ },
+ {
+  "path": "WeightedMIS/DeletedEmbeddedReduction.lean",
+  "lines": 80,
+  "sha256": "765d8062af4c1eecc8430cb3c7069b85a824edc6f5ebacdcd547aac186f7fe5e"
+ },
+ {
+  "path": "WeightedMIS/DeletionParameters.lean",
+  "lines": 135,
+  "sha256": "9a07b9a0b7bc7e2e1caa0a2ce61cd8c77656b8a17c014e558c959980ec2ab0c7"
+ },
+ {
+  "path": "WeightedMIS/DeterminantSize.lean",
+  "lines": 126,
+  "sha256": "eb313e228e87a7bb9a2e07c2c178000df934971248aad716fc3df05317bd7285"
+ },
+ {
+  "path": "WeightedMIS/DeterministicComplement.lean",
+  "lines": 193,
+  "sha256": "b353d163b8f0b03c1106d0c3238fd10f43b46e4a1a3c5ab4d9e1d7131e62aed6"
+ },
+ {
+  "path": "WeightedMIS/DeterministicKernel.lean",
+  "lines": 392,
+  "sha256": "75fb07bd4ba701d070c37860f1d90971942e69ebd5d5b734140c4c5b09f63353"
+ },
+ {
+  "path": "WeightedMIS/DeterministicKernelWidth.lean",
+  "lines": 266,
+  "sha256": "326b17127554233ec35fa020ada2b54b86f99727ed3866b61bd67fb048202054"
+ },
+ {
+  "path": "WeightedMIS/DijkstraCorrectness.lean",
+  "lines": 219,
+  "sha256": "6915772aca89be905275d1bb761320b4b52d59d2aba693880907f0da26a51b46"
+ },
+ {
+  "path": "WeightedMIS/DoubleCover.lean",
+  "lines": 255,
+  "sha256": "c993197af7f0d133efc170181f997a03b4f977ba76278bce2f084c76e8d223ec"
+ },
+ {
+  "path": "WeightedMIS/DoubleCoverNetwork.lean",
+  "lines": 121,
+  "sha256": "6851e17bee7f70f012f69429bb927591496beae40a6df4681407f720cc16abdf"
+ },
+ {
+  "path": "WeightedMIS/DrawingComponents.lean",
+  "lines": 123,
+  "sha256": "d964d392421b1e2a54d1a57cbee9725734efa57a9b7b7a8038ae78d6f3ddf93d"
+ },
+ {
+  "path": "WeightedMIS/DrawingEmbeddedReduction.lean",
+  "lines": 56,
+  "sha256": "d197fb0051e2af6982024b27a442978d05400bd6620588c88abfe3327069028f"
+ },
+ {
+  "path": "WeightedMIS/DrawingParameters.lean",
+  "lines": 105,
+  "sha256": "3de0b57589ac05fa8cd358aa4430d26f22bdcab2d6b090c91ba7976ea323cb02"
+ },
+ {
+  "path": "WeightedMIS/DrawingReduction.lean",
+  "lines": 177,
+  "sha256": "5a4c9ff48ee029aecb69b19e5cf0490edc5cac05c3500f838398088a5ba5d03a"
+ },
+ {
+  "path": "WeightedMIS/DrawingRegions.lean",
+  "lines": 94,
+  "sha256": "027c38bed1b1a41932dc3b644c56923e7013e886b2297d72128e19976a250971"
+ },
+ {
+  "path": "WeightedMIS/EdgeAllocation.lean",
+  "lines": 143,
+  "sha256": "1eec22ab68f52a95672997f875a6c4ee5bf71a0db00f441f4612197251a41bf3"
+ },
+ {
+  "path": "WeightedMIS/EdgeCostWords.lean",
+  "lines": 392,
+  "sha256": "60686ec5b27f772e8d2d3f2499e5709e381ed35f755c9e7e3431a87c7ad79949"
+ },
+ {
+  "path": "WeightedMIS/EdgeTransport.lean",
+  "lines": 113,
+  "sha256": "26b62e1ec5f184e4ab870d290f1bfdf3380aba00355d77fc601e6a8217ac9bc9"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchArithmetic.lean",
+  "lines": 87,
+  "sha256": "d073cb9bbb995852072bf1a72231534d0de180f5d7ca83f63d88d2729cc31727"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchArithmeticMore.lean",
+  "lines": 348,
+  "sha256": "40a26b8bf7f46a03e90f518627240517243f0ac54b89395d45e7759e880406a7"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchBounds.lean",
+  "lines": 117,
+  "sha256": "80a027f673034d4e1992ac818d51bafcae17a359c80a2f9582f7cd61f11455b0"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCode.lean",
+  "lines": 89,
+  "sha256": "fa6d01254417263883b72706ea4a857f7e0bbfb95712d38883e54632b99fcc25"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeBasic.lean",
+  "lines": 120,
+  "sha256": "d6aea58537c7f0e6f96a47f7df600c3bcb67ebdb927bde6ab86b5b31784dbbb5"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeBounds.lean",
+  "lines": 103,
+  "sha256": "7bdcb7c4d760935bc3195b4dad524315db1a282adc6f4d8e7f2333154947a667"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeFresh.lean",
+  "lines": 77,
+  "sha256": "8dc13072bce90e740e8184eb103cbb52f05b0977d04cc5729170381c53d593a7"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodePush.lean",
+  "lines": 87,
+  "sha256": "a334c5bd3dd51d80b316aecd9952f8918343910d95cd3908b8b64f608788534f"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeRelax.lean",
+  "lines": 94,
+  "sha256": "093ba1b94d966ea45e6301c87508489b4b89f959cbf99a9afd59a2c2e975eceb"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeSearch.lean",
+  "lines": 156,
+  "sha256": "ec5e4c17b72ba37e1e2ff58860fb372f0121a5fd83b082b9cbd44d159e89de13"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeSearchHelpers.lean",
+  "lines": 86,
+  "sha256": "07c47fe74c6237ee92b9a747c6610c2886959f354c643aa25cf4c5cd150b12eb"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCodeSolve.lean",
+  "lines": 67,
+  "sha256": "7ee8d54c6ffb02c72703060b9a36636e54fcdc6bf2584fb892b8074a1ec04643"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchCorrectness.lean",
+  "lines": 231,
+  "sha256": "113cc3ffc29691822faff1ac822813bd5268adf21e553bca760cf68cdf2b23cc"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchHistogram.lean",
+  "lines": 122,
+  "sha256": "60941a0b926ae3faa79cdd8dd5710f581b1ff0d38b0aa8158edd62bde3d068b8"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchHistogramCode.lean",
+  "lines": 31,
+  "sha256": "1983857043de76fc06a6f83437112534f78b4de576df1c14997ffd1ef3d864f9"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchHistogramCompile.lean",
+  "lines": 137,
+  "sha256": "780ad699d0cf56b8082a2ef14e920a8cb30d3a11210af82ca5a7d1af8e040604"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchHistogramRuntime.lean",
+  "lines": 92,
+  "sha256": "66260ef333044f9b4f7142e41b22b4ed1d0a6ecb305af89d91e7290a6a242168"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchHistogramUpdate.lean",
+  "lines": 106,
+  "sha256": "fd51fd5d962455663d2bba6f6b9411bd9c0984f41029d835d3be62e1671caaa6"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchLoop.lean",
+  "lines": 294,
+  "sha256": "e6ec1d38f0aff1a547ed50f4245767c06ebb946810f3d5318656d05bda07e7e6"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchOutput.lean",
+  "lines": 160,
+  "sha256": "10b5a002da147d04af4fb3d9fe2d0cf2f64eb78bc7880bca9e4cab266df46c3c"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchOutputExact.lean",
+  "lines": 155,
+  "sha256": "b1f796aaaaad4044fe3e845457660831c33c0b47c9c09d4ee9deeee3ca4058d3"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerData.lean",
+  "lines": 192,
+  "sha256": "bbd917bba69edc043b91377849fcadefea673cfdb8d4c9a79ef8949ef414f232"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerEvaluation.lean",
+  "lines": 308,
+  "sha256": "a47aa14de78c659b78ab30204a4b9c58f68b31c17052cc6a72be9fa216954f5f"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerExecution.lean",
+  "lines": 73,
+  "sha256": "5719d82e489e284919c5f56647d7edb510bb957f7cb2feef9a327f04c03e2a52"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerFresh.lean",
+  "lines": 85,
+  "sha256": "b6d8da0c0fcc06cf5a7f0804d68e348c8d78f738bd08e1b3a64480aec015768e"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerInspect.lean",
+  "lines": 82,
+  "sha256": "4d0970ba19819ee5b37bcd13ab7eb9fdb423f04bfca7e3ac1a4ac0b96a4cd111"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerRelax.lean",
+  "lines": 182,
+  "sha256": "3e0fbd226027f02e93fde6e0c6a949a7c0c3b3cc3ec8f29625812ec388ca1cc8"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerRun.lean",
+  "lines": 168,
+  "sha256": "c9f573c12dbf87a1c85dd29fbd3a2720cbda5f885e4fea0fe8a100bc41926e58"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerSolve.lean",
+  "lines": 138,
+  "sha256": "dbe98f2b76ddccd2f77b080d552ae247f730c66f4342d38e5edc3b5e4f640f71"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchPointerTrie.lean",
+  "lines": 113,
+  "sha256": "72e59e236c3eaccb5f313b8f9552cddb5a94909eba4a83be40aab617a12f45dd"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchProcedureTable.lean",
+  "lines": 141,
+  "sha256": "e675c9e9b76eb409914a07b7f1932997a67bddc6bfb7ee4a8f29b63676666254"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchProgram.lean",
+  "lines": 120,
+  "sha256": "8620a84a8e20369311ada79a1689e4798736cf50b6f6fa58c70071b6c9b541e1"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchQueue.lean",
+  "lines": 462,
+  "sha256": "cac068c0b4e57177f4074f0e370bbe57e13b543c31d3db851a3ec7e078cbb67f"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchRecovery.lean",
+  "lines": 306,
+  "sha256": "cd7b6c8eeb2744c8bd5dd9ad1f230903ced502ef6ce9a51ddabcda81d2d91a4d"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchRelabel.lean",
+  "lines": 325,
+  "sha256": "61fd01aae803cca68dc42bfbda1f0f6d205d09ef7b8cb3ace7259d16006f00d3"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchRelations.lean",
+  "lines": 169,
+  "sha256": "80bff136f9e4f4e44874cef7db9e60796516258aff4a710dc173cf501f55ff5e"
+ },
+ {
+  "path": "WeightedMIS/EfficientSearchRuntime.lean",
+  "lines": 85,
+  "sha256": "b9e3db4dd1c474e29813f24bc062fd2bd0e90523fe30b94815186b3ad0c15735"
+ },
+ {
+  "path": "WeightedMIS/EliminationCertificate.lean",
+  "lines": 382,
+  "sha256": "72ddb446f184f54e09091ce023a1a9d197c1be2e0f51b60f10a0d85a6f6caa70"
+ },
+ {
+  "path": "WeightedMIS/EmbeddedDimensions.lean",
+  "lines": 142,
+  "sha256": "ad174d1ef00a04c0ca05f7c47631bce24fd39c3db37f9e798a5d76691482d092"
+ },
+ {
+  "path": "WeightedMIS/EmbeddedReduction.lean",
+  "lines": 141,
+  "sha256": "44d0ed1232fde744b708faee1580e31e9765a7de02cb586328f7bfe22fa7dfba"
+ },
+ {
+  "path": "WeightedMIS/Embedding.lean",
+  "lines": 221,
+  "sha256": "d9605d85d02380d605520473dff062c6a78edeb4dcc7c28a2b2f4283d98db337"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingDeletion.lean",
+  "lines": 235,
+  "sha256": "bef8cc0a7457150ac966edb2cd7e156f3e6ecca55e1ee70cd5dc109c9b081a51"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingDeletionOrientation.lean",
+  "lines": 107,
+  "sha256": "2bf966d5a9b18b650d33f8d72fcdf7f3e8c6806a60fd6d0855846360b5aa187b"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingDual.lean",
+  "lines": 201,
+  "sha256": "4bf9dc483484733e0c9ae0fa23dc73ebdf53a9528ddf58be37773cbe5afacba0"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingEuler.lean",
+  "lines": 267,
+  "sha256": "b13ab39450f5fedf80826ce856f288501439b9ed65f00a69d7fa6b631a4cb9d5"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingFaces.lean",
+  "lines": 218,
+  "sha256": "2eb6e0aa8436f4bb3907426152b6d6bfff90d49aeafd33dabc2b9845c5b921a2"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingPermutations.lean",
+  "lines": 174,
+  "sha256": "ac7578ec943c572390ddff7b894351ded67496e41b951962111e466629a6179a"
+ },
+ {
+  "path": "WeightedMIS/EmbeddingVertices.lean",
+  "lines": 108,
+  "sha256": "58eee64506913fac75fec9fdaee80f5c74f6826d1ed97e417791e327e5656466"
+ },
+ {
+  "path": "WeightedMIS/EncodingCost.lean",
+  "lines": 197,
+  "sha256": "f951e10b8084d480ba6bbce53eab90908d66ecdc1065323665d3c8f87c3b3ecd"
+ },
+ {
+  "path": "WeightedMIS/EndpointRelabeling.lean",
+  "lines": 91,
+  "sha256": "d6666d43a96945d3c3e0e7d312bc08d8df91bbf00f7ddc806c4824e56f4f0b9a"
+ },
+ {
+  "path": "WeightedMIS/EnumeratedEmbedding.lean",
+  "lines": 174,
+  "sha256": "d7308a2cb81500fe85790d1bb307f352696e5cf9b416658f552e0367f353b435"
+ },
+ {
+  "path": "WeightedMIS/ExecutableAllHalf.lean",
+  "lines": 88,
+  "sha256": "c48173a7d79980dd8b30a170bfbac62fa0d311c39f6bdcd0c3c2f02dd3164f96"
+ },
+ {
+  "path": "WeightedMIS/ExecutableComponent.lean",
+  "lines": 68,
+  "sha256": "70d43c0a2ce67e9533f5a423adc310fac30081e67bed6a8fb1b72bb1946b1517"
+ },
+ {
+  "path": "WeightedMIS/ExecutableMIS.lean",
+  "lines": 64,
+  "sha256": "1bbb7b8f685f8bd626903abe9fd201b817afeb20647e0c770a75430207080f25"
+ },
+ {
+  "path": "WeightedMIS/ExecutableParity.lean",
+  "lines": 48,
+  "sha256": "ad8f32ff954210116078bfaf13f3c7c5b41e5286f7d85e81d1b4a1507d2ad076"
+ },
+ {
+  "path": "WeightedMIS/ExecutableReduction.lean",
+  "lines": 105,
+  "sha256": "d54ff949398ab38c9ec9e7aafd4288c4269640826579545d6c605558c5a82061"
+ },
+ {
+  "path": "WeightedMIS/Expanded.lean",
+  "lines": 271,
+  "sha256": "a86290465c09ae9cb240568fa9d9ddb2a78b5f43928c3f08c7af674cc07c23c7"
+ },
+ {
+  "path": "WeightedMIS/ExpandedCandidateSemantics.lean",
+  "lines": 115,
+  "sha256": "c3d1b5610cfe6b9cd2e75868b02f86a3d2c026dc0e954e45abe966e711e4273a"
+ },
+ {
+  "path": "WeightedMIS/ExpandedContext.lean",
+  "lines": 72,
+  "sha256": "cd1f93644dc5c3d434d98dafe1807926635d2512d281e48150a8de023a77aebc"
+ },
+ {
+  "path": "WeightedMIS/ExpandedCoordinate.lean",
+  "lines": 149,
+  "sha256": "f80331dea6a6902a4f6597ea9233b274b098785aa005adfc245f1a1049e5a54e"
+ },
+ {
+  "path": "WeightedMIS/ExpandedCoordinateSemantics.lean",
+  "lines": 151,
+  "sha256": "77257e754313fe1580974e12c70d93294607c434eed9fbe640191e80a11a1d5c"
+ },
+ {
+  "path": "WeightedMIS/ExpandedEmptyCoordinates.lean",
+  "lines": 61,
+  "sha256": "629baff881ea15fd7d04802d91ca4946829396f9cc4f63a0623417046e2cc31a"
+ },
+ {
+  "path": "WeightedMIS/ExpandedEnumerationProgram.lean",
+  "lines": 113,
+  "sha256": "2ea2a5d43eb12995a565451929e381201a96ff919a2e925be6914c635e8b66af"
+ },
+ {
+  "path": "WeightedMIS/ExpandedEnumerationSize.lean",
+  "lines": 54,
+  "sha256": "9143d50747fa80550272c9b57661cde7d32de02495e7a45dc714a1ba330dd949"
+ },
+ {
+  "path": "WeightedMIS/ExpandedGenerationData.lean",
+  "lines": 41,
+  "sha256": "5bb7f65de2acc041fd64dc926f2569b4b909c22195f659e353bd9a127576b243"
+ },
+ {
+  "path": "WeightedMIS/ExpandedHubSourceSemantics.lean",
+  "lines": 87,
+  "sha256": "6af8c4e7497931e8e99a3ea4e876d365389a2e91224c1ca716e26c85ddde8581"
+ },
+ {
+  "path": "WeightedMIS/ExpandedParameterValues.lean",
+  "lines": 214,
+  "sha256": "39561ecc3f2d5c0566beed3a540025f0b08f621c90c51a8e5d2d34a77f112b29"
+ },
+ {
+  "path": "WeightedMIS/ExpandedRecords.lean",
+  "lines": 49,
+  "sha256": "51254e59793712b1d0398d78157195b5849afe91b4115e2a0ce1173367e02857"
+ },
+ {
+  "path": "WeightedMIS/ExpandedSourceSemantics.lean",
+  "lines": 146,
+  "sha256": "184f67954370650633bfb532838dec23378bb9947de0b374600ff72c66f23dc2"
+ },
+ {
+  "path": "WeightedMIS/ExpandedWordEncoding.lean",
+  "lines": 117,
+  "sha256": "da6a8825a3618f850446b5df4d4353e7ce3fe51f4380f242a53fe656f5848198"
+ },
+ {
+  "path": "WeightedMIS/ExpandedWords.lean",
+  "lines": 61,
+  "sha256": "343880b8aa66ba15f78b25c82020def05f92ba4d9db42606f7262427f2512636"
+ },
+ {
+  "path": "WeightedMIS/ExpandedWorkSourceSemantics.lean",
+  "lines": 123,
+  "sha256": "0916ba42f303e950964403bb39e499390b3445b44828fd894beea0a7d474df42"
+ },
+ {
+  "path": "WeightedMIS/FaceColumnSemantics.lean",
+  "lines": 184,
+  "sha256": "732d5b9d54cf2dd8d41d20bc702e279d6990fb344bdc8da4ac1bcbdf0db72cfa"
+ },
+ {
+  "path": "WeightedMIS/FaceRank.lean",
+  "lines": 196,
+  "sha256": "c012f289360aeaa8a0590917860aebec5dc766a6eb37fac443af1e2221267efc"
+ },
+ {
+  "path": "WeightedMIS/FaceRowSemantics.lean",
+  "lines": 258,
+  "sha256": "6c5577a3f22864fd9b923de860cd43f5973a946ddccfa8865c2003752a6f6a8d"
+ },
+ {
+  "path": "WeightedMIS/FaceStageCode.lean",
+  "lines": 102,
+  "sha256": "3dd5e259e34ecc80906a2d317f56904f070e3c1c556c9a8b9ea09c29e5b64ea6"
+ },
+ {
+  "path": "WeightedMIS/FaceStageProgram.lean",
+  "lines": 214,
+  "sha256": "f4f8bbac1605a1590c26cd1c50a4ee607a829dd653acc2b5226a83408fc90bc0"
+ },
+ {
+  "path": "WeightedMIS/Faces.lean",
+  "lines": 212,
+  "sha256": "47c38b30603a823956e79fe24809b49b23d398adc6e121393547d267640b7d76"
+ },
+ {
+  "path": "WeightedMIS/FinalAccounting.lean",
+  "lines": 252,
+  "sha256": "364985da4cb16f4e6ee8cb8618f2a117db69e229dec88cf28dec5675506f807f"
+ },
+ {
+  "path": "WeightedMIS/FinalBudget.lean",
+  "lines": 260,
+  "sha256": "ed713e8a2f38b26841383bffe291a0e9d9f1cf13a418caf5f1f728663fbd753b"
+ },
+ {
+  "path": "WeightedMIS/FinalCost.lean",
+  "lines": 147,
+  "sha256": "2579b5a0b2705f109598a533e12808d3f125b6e248810a9341e5478d8d53a37f"
+ },
+ {
+  "path": "WeightedMIS/FinalProgram.lean",
+  "lines": 67,
+  "sha256": "510a80d872518d3d08d0ea5c20cfe389b540bc5ac6d4a8f34cc11c551c5628aa"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramBodies1.lean",
+  "lines": 432,
+  "sha256": "3af352032ca940c01f482b0674221d1ec845cbef339ec5c3a5c833c1af5f8279"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramBodies2.lean",
+  "lines": 416,
+  "sha256": "350f81f85db47f82ae81319df67230d9d942c4feca791976359dab394f5c9f68"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramBodies3.lean",
+  "lines": 387,
+  "sha256": "2c40ee5aad38b18d3b932b2b2f1b1d30c90531d63a1eba38bdefd304429d3396"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramBodies4.lean",
+  "lines": 390,
+  "sha256": "25e45bcd79e2c851de5f04f5734027f042192d905790c18e626b6a81f22a5ed8"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramBodies5.lean",
+  "lines": 223,
+  "sha256": "1f65526cc84ba921adfe3525b24aeccd4ca39883485ee01158315a73f70b084e"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramIds.lean",
+  "lines": 273,
+  "sha256": "a36f521e426a4dc650d51eeee825987ae3aba27960941ee15d3118426aa528ae"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramTable1.lean",
+  "lines": 444,
+  "sha256": "8e02cf93595adfd0dc05b8dce8c24d5a17c6bae103a421e0470641518bd7d76e"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramTable2.lean",
+  "lines": 431,
+  "sha256": "c3966c17822b0389c6f9fd9c10b7f6b7c2d022630b19b226677a7790209ddb7c"
+ },
+ {
+  "path": "WeightedMIS/FinalProgramTable3.lean",
+  "lines": 379,
+  "sha256": "c50e94715085c58dcfd683584be0ac2f029de6658e7bbdbe441e6bcddb53d5f8"
+ },
+ {
+  "path": "WeightedMIS/FiniteCycleEnumeration.lean",
+  "lines": 213,
+  "sha256": "d195c6485ca28c3e9953c44531c12281a6c596be863859c76d58b8da43a82cb1"
+ },
+ {
+  "path": "WeightedMIS/FiniteCycleLength.lean",
+  "lines": 100,
+  "sha256": "1a3af23404a3fce973594fdbf4ff0d8922175b65e9ccf22a3d37a73a70e94272"
+ },
+ {
+  "path": "WeightedMIS/FlagKeyFaces.lean",
+  "lines": 340,
+  "sha256": "a364b6df5122276bc3e159ccca4c7a20228b12a2f318a6e374b0ddeffed341ed"
+ },
+ {
+  "path": "WeightedMIS/FrontCycleEnumeration.lean",
+  "lines": 42,
+  "sha256": "63fee94369d2636878476b3c2e5ea02719ace12c2be66d49ec30a49eba999433"
+ },
+ {
+  "path": "WeightedMIS/GenerationCost.lean",
+  "lines": 204,
+  "sha256": "52828b08d0c7b73abc467820470011ea167bd2778affc958374ebae5cdb054f4"
+ },
+ {
+  "path": "WeightedMIS/GraphComponents.lean",
+  "lines": 181,
+  "sha256": "1a340a37afb1b657b6e023d283cbf68b1681cf64812c8f7f3d847c622dc47e71"
+ },
+ {
+  "path": "WeightedMIS/GraphReachEncoded.lean",
+  "lines": 365,
+  "sha256": "8545ba62fdc485f7258aabad3f4ac73edfe8107876441ea0dfb801589386735d"
+ },
+ {
+  "path": "WeightedMIS/GraphRelabeling.lean",
+  "lines": 96,
+  "sha256": "814ea2ffd5ee9144a4a4a8a266cf43d3d6406e30724f4ed1400cfee0f3974e91"
+ },
+ {
+  "path": "WeightedMIS/GraphSearch.lean",
+  "lines": 135,
+  "sha256": "1d4b7edc08948bf1d3c4543387db36a5195f27e2af1c2a3f8a22d39aee3df284"
+ },
+ {
+  "path": "WeightedMIS/HalfIntegral.lean",
+  "lines": 145,
+  "sha256": "d1ad9be70c08da26f7723be3b348092ab9853bfa2bce64a507df5733500a813c"
+ },
+ {
+  "path": "WeightedMIS/HardSolveBudget.lean",
+  "lines": 279,
+  "sha256": "2fe92ba48d6310ae800e3a4032248bfd91b69f7fd69d8eecf92051bc06d6b3f1"
+ },
+ {
+  "path": "WeightedMIS/HardSolveReference.lean",
+  "lines": 264,
+  "sha256": "9a26174a9368349e31f09cdd106fe142b2a7855a6a094dd901537cd71579ccf0"
+ },
+ {
+  "path": "WeightedMIS/HardWidths.lean",
+  "lines": 248,
+  "sha256": "e7ffbf64d763ba4368589ed3844040514d4ce3628d9badf51d45d93cef1b0371"
+ },
+ {
+  "path": "WeightedMIS/Incidence.lean",
+  "lines": 175,
+  "sha256": "7077f6ba4ba8e671d3330a006aa408a46658cf76e55fc22a08e30334a3fa5b86"
+ },
+ {
+  "path": "WeightedMIS/IncrementalComplement.lean",
+  "lines": 317,
+  "sha256": "1b7a0b9170dcab2f689eb932c364b03b020c2208749f9ba04dc0cbfab947412a"
+ },
+ {
+  "path": "WeightedMIS/IndexedActiveVertices.lean",
+  "lines": 58,
+  "sha256": "3533e0af58c741d113a963ee508e05accb7147c7d603afa27c82078d301313e0"
+ },
+ {
+  "path": "WeightedMIS/InducedComponents.lean",
+  "lines": 161,
+  "sha256": "f6063d017800c53119331ec436b5557cfb3f93d4613f7f6b60708ce6cbe63f38"
+ },
+ {
+  "path": "WeightedMIS/InducedReduction.lean",
+  "lines": 152,
+  "sha256": "e9c7510f2b39deee4bba53a87a08712cca452ea6c26336e094773abb67fdbdc2"
+ },
+ {
+  "path": "WeightedMIS/InducedTable.lean",
+  "lines": 108,
+  "sha256": "31ab75b6f6edc789c1e875ad61fc899de5ec3fa29a00c3cc62df1ac912e7435c"
+ },
+ {
+  "path": "WeightedMIS/IntegerEdgeCosts.lean",
+  "lines": 113,
+  "sha256": "1e5cc2ab10ab835c9942f734a4285beccf681985909d4d7ecd523d30e2dab3ca"
+ },
+ {
+  "path": "WeightedMIS/IntegerSlacks.lean",
+  "lines": 149,
+  "sha256": "b0bb243d4d97df0be5357ee270f12dea7994b4c74479d5728d68b18b320152e8"
+ },
+ {
+  "path": "WeightedMIS/KernelArithmetic.lean",
+  "lines": 220,
+  "sha256": "f077720bb5585077ed3227bd822217269237792b3b1e227420b741f29b22fe30"
+ },
+ {
+  "path": "WeightedMIS/KernelBasis.lean",
+  "lines": 236,
+  "sha256": "12fd71ef70677c2d059321a678b68d963d54762fc19ca63c66417c9a104e2fab"
+ },
+ {
+  "path": "WeightedMIS/LPDirections.lean",
+  "lines": 112,
+  "sha256": "ecb5d72387ca0dc0d5437c308ad5bef02089413e4acbee7b654998ab92fd6b4b"
+ },
+ {
+  "path": "WeightedMIS/LPExistence.lean",
+  "lines": 190,
+  "sha256": "fc2cd86c4f7c515f2534bf8dce6394cfb4e3ecf9c5d4072e0fb8cd8e112d9be4"
+ },
+ {
+  "path": "WeightedMIS/Lift.lean",
+  "lines": 204,
+  "sha256": "fa571c609a045cdb29bcb3b52c81f642653a9a4288a6edac8328512caf6bf138"
+ },
+ {
+  "path": "WeightedMIS/LinearAlgebra.lean",
+  "lines": 130,
+  "sha256": "30046d21e70f9807509a6606be33abb70790a3818c3daa548d152ac697c94941"
+ },
+ {
+  "path": "WeightedMIS/MainTheorem.lean",
+  "lines": 71,
+  "sha256": "fbdbcd8891f6744332837b3c582ace39ee14b755a835091a77f28f513ff828b9"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowCached.lean",
+  "lines": 163,
+  "sha256": "b7aabd9c233b57e20cb9088c84c7477fbe13630bd83104e175915dbd08609d27"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowCore.lean",
+  "lines": 246,
+  "sha256": "d233fe84420cd7fd1eac6c565cdc47ea68b49620173cb00837126f281ca151f7"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowDual.lean",
+  "lines": 259,
+  "sha256": "4371302b540b3986514bcf9b511ec38c4a977f71d4310c36c6f851a8267cee8f"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowListReach.lean",
+  "lines": 107,
+  "sha256": "0888616f416647bd0a7a8b362c99d2b1b32e970f012df6f94de7d608f2ea9420"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowOverscaled.lean",
+  "lines": 180,
+  "sha256": "0d9bdf46edbccb9d4543b243fa32b417882d8d17d406073f6372af7fb479448b"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowPreprocessing.lean",
+  "lines": 160,
+  "sha256": "db7b634e29404f6294eb304756cf0c15427d9ca076f21f5ae78e26c96287a195"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowReach.lean",
+  "lines": 239,
+  "sha256": "f9a9245d3f06f6bc48df3dc893f7cf0823cc31f6e385078aec672d4016eb2237"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowResidual.lean",
+  "lines": 97,
+  "sha256": "2111498d95fea06bc4398cd0d0c6c4ff093b58b252120ad9fd42ae507d699e08"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowScaling.lean",
+  "lines": 249,
+  "sha256": "5dc134503960a58774669ac65504b7b43bd1d02b170e2a1a1386027b47954c52"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowSize.lean",
+  "lines": 138,
+  "sha256": "74b92164bcacc95625819c4a9946d76b87c5ab920382a5830865f203e26fdd54"
+ },
+ {
+  "path": "WeightedMIS/MaxFlowWork.lean",
+  "lines": 194,
+  "sha256": "dda69989f1df17a6e5663a66034a6c7804c27a1caea8563e7b25e641d1338657"
+ },
+ {
+  "path": "WeightedMIS/NegativeWeights.lean",
+  "lines": 75,
+  "sha256": "08a39d721dbc4764d6ff43e08769522b097a5bf3c4b4dd14f33681263a80132f"
+ },
+ {
+  "path": "WeightedMIS/NestedRetention.lean",
+  "lines": 58,
+  "sha256": "ac7ac9d9cc7f144f169182c68ac314ec400dbd6cf677a9c1e83449e3bd362a89"
+ },
+ {
+  "path": "WeightedMIS/NetworkWeights.lean",
+  "lines": 362,
+  "sha256": "ba28356494fe533a0f608b531181893b292b075af354ee0060936abb5467fe21"
+ },
+ {
+  "path": "WeightedMIS/NetworkWords.lean",
+  "lines": 177,
+  "sha256": "a074f5e0880b1b741fcc77c253944a5661688d773b98550263f3539e34a27649"
+ },
+ {
+  "path": "WeightedMIS/NodeEncoding.lean",
+  "lines": 78,
+  "sha256": "aedb33decb28694eeeaf428090469bcefec36b8934a700db4a49f04fdcfa53bd"
+ },
+ {
+  "path": "WeightedMIS/OddRow.lean",
+  "lines": 156,
+  "sha256": "ed1df32d54f08570c6b9f2f50c49f229f74f955c321f94fc1106c352aad14c35"
+ },
+ {
+  "path": "WeightedMIS/Orientable.lean",
+  "lines": 230,
+  "sha256": "ace3ca86aa31dc3b6c1e508b344852861e267623fb615b1baa99b9c598f0bbdf"
+ },
+ {
+  "path": "WeightedMIS/OriginalFaces.lean",
+  "lines": 181,
+  "sha256": "69330fbf2b37208b5c89c1d053effa561f5c57fd39f14f9e62bc7308b62f1636"
+ },
+ {
+  "path": "WeightedMIS/OriginalReduction.lean",
+  "lines": 218,
+  "sha256": "c33183f48a7b7ecf2c92a8e2664c491e1e59aabba1e8ea0b78cce789ee183d6e"
+ },
+ {
+  "path": "WeightedMIS/Parameters.lean",
+  "lines": 161,
+  "sha256": "3e109d2f2e5fa6d11a010654964c6f47789040dfec0055423c87d5ef88fabbcd"
+ },
+ {
+  "path": "WeightedMIS/Parity.lean",
+  "lines": 113,
+  "sha256": "6275f8501e7151546802ac3c6ee7a8862e0ec720bbd10fa4e66a07b312a2000c"
+ },
+ {
+  "path": "WeightedMIS/ParityReachRefinement.lean",
+  "lines": 347,
+  "sha256": "46f58b63099d04c3d08ac7241f159e9fc7eb51e6f191033d620e327b41da129d"
+ },
+ {
+  "path": "WeightedMIS/PermutationDeletion.lean",
+  "lines": 332,
+  "sha256": "44eacfb56ad7ec97d16956f2fbee7f97b3b11782ad0a4db90192a3db97c9f605"
+ },
+ {
+  "path": "WeightedMIS/PermutationRestriction.lean",
+  "lines": 144,
+  "sha256": "6a4b6773deb551f095fd06f0be0520bc9b52d41acbd7d6f30d8bda0fc1dc1c9a"
+ },
+ {
+  "path": "WeightedMIS/Persistence.lean",
+  "lines": 235,
+  "sha256": "c1a6c20d9c082dba66538dd5fc5d4eeb877998b459fc765d514ff37d511b1bd7"
+ },
+ {
+  "path": "WeightedMIS/PointerArithmetic.lean",
+  "lines": 120,
+  "sha256": "e90acbfbbfe958d4855b13775d4376909b25a7123bf9e37adaa71d4c43f3a642"
+ },
+ {
+  "path": "WeightedMIS/PointerArithmeticEval.lean",
+  "lines": 124,
+  "sha256": "b898c42986a1c85d7bf898ccf79cac745a3cf2fa3cf9698888cb993cae06a72f"
+ },
+ {
+  "path": "WeightedMIS/PointerCallTrees.lean",
+  "lines": 187,
+  "sha256": "aefc8b3f068fada90fdd637528db13154ebe6df886d51b2237cb4df465bc4bd3"
+ },
+ {
+  "path": "WeightedMIS/PointerEvaluation.lean",
+  "lines": 166,
+  "sha256": "0fe479779179e03d87bcde56402b639848cbccc68760cacc961dfaa8b97e283b"
+ },
+ {
+  "path": "WeightedMIS/PointerExecution.lean",
+  "lines": 114,
+  "sha256": "32aa66fbaeacb0f2354ee9a4f82aea06e3898d080c40a7337f2705adace92c49"
+ },
+ {
+  "path": "WeightedMIS/PointerInsert.lean",
+  "lines": 163,
+  "sha256": "0b77a8ea8fdb7c8379d23ab6b24fb7ccb80f534883e54abe5233e918ee70901e"
+ },
+ {
+  "path": "WeightedMIS/PointerJoin.lean",
+  "lines": 77,
+  "sha256": "14ed4e44078fe0efaa908aad2946e04369d64b30c96f1db03b4288a7acb2d1fe"
+ },
+ {
+  "path": "WeightedMIS/PointerLookup.lean",
+  "lines": 108,
+  "sha256": "f2696e579370a1ce0bdf4f9f5157392e4033ce188802351448ab761df3d9d8db"
+ },
+ {
+  "path": "WeightedMIS/PointerMemory.lean",
+  "lines": 226,
+  "sha256": "7daa1c43371f25b8ed513e411dfa8cc0eee85dbccb75b1233a024b5ec54c2080"
+ },
+ {
+  "path": "WeightedMIS/PointerPop.lean",
+  "lines": 193,
+  "sha256": "e855b383a601b8285b53b42e348fa48181d949b28995ba6b4d067ad8a4f529ec"
+ },
+ {
+  "path": "WeightedMIS/PointerPopSafety.lean",
+  "lines": 133,
+  "sha256": "6741bc804a1d40b82eee928ed52f75e58afb92da9282718b798c1beffb683742"
+ },
+ {
+  "path": "WeightedMIS/PointerRepresentations.lean",
+  "lines": 134,
+  "sha256": "63d5f0e72d875f7124bd5e3011787d3044c94062b97f803a3cfa759e5bc5592c"
+ },
+ {
+  "path": "WeightedMIS/PointerStack.lean",
+  "lines": 179,
+  "sha256": "b7be9df3848654d5b13c8982963198214dfb04d194fa5dc14e6e76f6a569faa2"
+ },
+ {
+  "path": "WeightedMIS/Preprocessing.lean",
+  "lines": 66,
+  "sha256": "b649cb1c287bc3483cd6b85d70a332382a827919b0a04427ffda77e629b9516e"
+ },
+ {
+  "path": "WeightedMIS/PreprocessingPolynomial.lean",
+  "lines": 67,
+  "sha256": "7a06c88bb69bb47fc153b7e3064848fad0015d3d1c7e430637b15014c0de2ea1"
+ },
+ {
+  "path": "WeightedMIS/PureSmoothing.lean",
+  "lines": 247,
+  "sha256": "ad236de68d2ad999e33f229b388c5a71a53ae0d82bb1f9063d9f9c93ccbd62b5"
+ },
+ {
+  "path": "WeightedMIS/RadixConstruction.lean",
+  "lines": 51,
+  "sha256": "dc284d705666d80f8cd09683ae69e62db4f5aaa7dc6a19e635bcdde7edb1ddea"
+ },
+ {
+  "path": "WeightedMIS/RationalDual.lean",
+  "lines": 163,
+  "sha256": "6fc52b0e42a50d7e2b0632207e2df073a2de96d970736b9186e6043b1acb3765"
+ },
+ {
+  "path": "WeightedMIS/RationalElimination.lean",
+  "lines": 164,
+  "sha256": "23dde36aecac253b5ab991a47cebe23b0dc2251befedca830eaaa9df147acc07"
+ },
+ {
+  "path": "WeightedMIS/RationalRowSemantics.lean",
+  "lines": 96,
+  "sha256": "226567c46f7bf1154b5b652779774e61f704a7c8046863f79149d4f80aa9fb34"
+ },
+ {
+  "path": "WeightedMIS/RationalWidth.lean",
+  "lines": 157,
+  "sha256": "9721e4a101cefdf57faf49f56a0cc681d5b2accdfec1a6f09c30b67f9745fc49"
+ },
+ {
+  "path": "WeightedMIS/RationalWordRows.lean",
+  "lines": 504,
+  "sha256": "cf3e0a47e7ecafc56a3c9c1ab7076c10ac060d407d4c30581f49ad5df9add957"
+ },
+ {
+  "path": "WeightedMIS/ReachSeen.lean",
+  "lines": 247,
+  "sha256": "afcd30709ea85844afe661fee40ef1e1cf9e576d8aad5c6bd442db55005bcdb6"
+ },
+ {
+  "path": "WeightedMIS/Reduction.lean",
+  "lines": 232,
+  "sha256": "8104f89eee63bf1d876519ee5e8348ab2e4ff1ea188ff5e8040a3fccf42949a4"
+ },
+ {
+  "path": "WeightedMIS/RegionParity.lean",
+  "lines": 233,
+  "sha256": "722cf2f83548b8c3198ebbe8e85d91e40198ffea94554badddf621133f3c84f8"
+ },
+ {
+  "path": "WeightedMIS/RegisterAdder.lean",
+  "lines": 161,
+  "sha256": "251372928c31a108bbde72ef8083a2fd8104099ff75de7bbbee73b8ac16f53c9"
+ },
+ {
+  "path": "WeightedMIS/RegisterAdjacencyScan.lean",
+  "lines": 283,
+  "sha256": "265ba8c039d97c3dfbf0874f292a0f7c3c8e5b01727374543463b33950c5e7fe"
+ },
+ {
+  "path": "WeightedMIS/RegisterAdjacencyTable.lean",
+  "lines": 350,
+  "sha256": "7ed939d5ab6db1aa0b92684ad89ade1034657010f24d8179d5225e01f9aff0b3"
+ },
+ {
+  "path": "WeightedMIS/RegisterAllHalf.lean",
+  "lines": 193,
+  "sha256": "72de1f157bd722babf1c7d61ad06a805dd1de041533440fdb2fcf15fe8f80339"
+ },
+ {
+  "path": "WeightedMIS/RegisterAllSources.lean",
+  "lines": 99,
+  "sha256": "762193b7e119bfeba798c5843a8b083969cbb833d7312dfb29e8023a7e26a8b7"
+ },
+ {
+  "path": "WeightedMIS/RegisterArcEmitter.lean",
+  "lines": 67,
+  "sha256": "86afece71a871e460b77527a816e6a134269814af0d8958079a33d17a2bf6e03"
+ },
+ {
+  "path": "WeightedMIS/RegisterArcLookup.lean",
+  "lines": 213,
+  "sha256": "6ec059f6118d966b6424f416940f6a1d38a270a2bdb2b1817bfb4b7f624adb7b"
+ },
+ {
+  "path": "WeightedMIS/RegisterArcMembership.lean",
+  "lines": 193,
+  "sha256": "8ecaaf12a1a6f87997852cb9b292d4272753a87f69eef2d3d4dc9ee12cb3424b"
+ },
+ {
+  "path": "WeightedMIS/RegisterCandidate.lean",
+  "lines": 57,
+  "sha256": "484bfd539fac0a6074814869185943e547aa973e55fae9643e04a5753cf3b525"
+ },
+ {
+  "path": "WeightedMIS/RegisterCandidateCompiled.lean",
+  "lines": 207,
+  "sha256": "b59fea6db761fb37a22246a3e4137be89913a7453105a1b9a15e89073c591868"
+ },
+ {
+  "path": "WeightedMIS/RegisterCandidateFinish.lean",
+  "lines": 143,
+  "sha256": "d5d51ea2de800b0f89ae64c27604cbddfd2e38dfe24ba44548719cf4ce84414d"
+ },
+ {
+  "path": "WeightedMIS/RegisterCandidateParsing.lean",
+  "lines": 151,
+  "sha256": "4d7b472a5cb02e4ada072980589a183f3515c0feb61337cc49be3e5a677c76b3"
+ },
+ {
+  "path": "WeightedMIS/RegisterCandidates.lean",
+  "lines": 373,
+  "sha256": "3f7c2a633a43ac14162761fa6a6b0a705b1e28be5e589314b2c4cbf676de2e49"
+ },
+ {
+  "path": "WeightedMIS/RegisterColumnResize.lean",
+  "lines": 275,
+  "sha256": "70aa1a184ab370face153b3c3de310706d9d9105105aab7a745d83334baf724f"
+ },
+ {
+  "path": "WeightedMIS/RegisterComparator.lean",
+  "lines": 173,
+  "sha256": "ec74ddbcd92fb3a062b41aea35565af8da7b6e34e1bbe01d9b6541352473c880"
+ },
+ {
+  "path": "WeightedMIS/RegisterComplement.lean",
+  "lines": 98,
+  "sha256": "65c8b8d1d8dce395606633e97940ef9ebb5993693b7ed8e36c9c6d1a0c8b17db"
+ },
+ {
+  "path": "WeightedMIS/RegisterComplementSelect.lean",
+  "lines": 487,
+  "sha256": "31cd57dc376525923358c4461401f95c0de1939d1a8b3e383d918e0710e7ef17"
+ },
+ {
+  "path": "WeightedMIS/RegisterComponentRoots.lean",
+  "lines": 248,
+  "sha256": "5c507d3029dc4c6f55d30005c0e65b613d3874074c56b2d74b040520f050419b"
+ },
+ {
+  "path": "WeightedMIS/RegisterComponentSolve.lean",
+  "lines": 475,
+  "sha256": "7f31e019e0c7b1ae2b92e6859bd82f142369fcd61b63858e9b8cb5ae33c3760a"
+ },
+ {
+  "path": "WeightedMIS/RegisterContextPack.lean",
+  "lines": 87,
+  "sha256": "09cbed1ae6f41aa167101cc433f624cd86621e26bc3b53b39ab783d01e546497"
+ },
+ {
+  "path": "WeightedMIS/RegisterCoordinate.lean",
+  "lines": 231,
+  "sha256": "5c1b3ab30e43d677ed55bb7839f50ec82856a307ae0551e66ae10e16dda0ca60"
+ },
+ {
+  "path": "WeightedMIS/RegisterCoordinates.lean",
+  "lines": 176,
+  "sha256": "ad50aa7360896a2a343b4f2e6ad7f5e044f92287a64b4f1392dd0166a6415b75"
+ },
+ {
+  "path": "WeightedMIS/RegisterCutReadback.lean",
+  "lines": 250,
+  "sha256": "6a6cc180288bf20ffdbfd404a8d9e307295ae7006751c6bbcf7ce9e564d97548"
+ },
+ {
+  "path": "WeightedMIS/RegisterDecompose.lean",
+  "lines": 405,
+  "sha256": "fc036b7935f18e85150a5b180d923bfb5dc20c764906cf664b7c6bffd8fa311c"
+ },
+ {
+  "path": "WeightedMIS/RegisterDigits.lean",
+  "lines": 144,
+  "sha256": "853f029204fa9c983c131590659aefb6d72d4bc9eafc51f0112d5ca13f6d23b2"
+ },
+ {
+  "path": "WeightedMIS/RegisterDivision.lean",
+  "lines": 204,
+  "sha256": "7c1f5e482d46533b8c5dd94d822fcda26e3e76707aa74abf41a24e647f12c298"
+ },
+ {
+  "path": "WeightedMIS/RegisterDivisionWrapper.lean",
+  "lines": 150,
+  "sha256": "1431cb0aba069a62141d1fe852bea001921701e28717d2ed233b7534120e2cf9"
+ },
+ {
+  "path": "WeightedMIS/RegisterEdgeCostProgram.lean",
+  "lines": 258,
+  "sha256": "a667ac503678eb2cd9ba1e46ec71bfb818c171fc0f8ac538622626ff5cccdcd3"
+ },
+ {
+  "path": "WeightedMIS/RegisterEdgeCosts.lean",
+  "lines": 471,
+  "sha256": "ed2ac0f1e4b9953df3df3817370b2571598e08377eab7e5c428cda20fe045a37"
+ },
+ {
+  "path": "WeightedMIS/RegisterEdgeMetadata.lean",
+  "lines": 399,
+  "sha256": "9808727c1de53f39e856823a183e47afa62c5ae0dd9094c417477dcf11fcfced"
+ },
+ {
+  "path": "WeightedMIS/RegisterEdgePairs.lean",
+  "lines": 92,
+  "sha256": "6aeb0c06cd07e8b50d4ffcab7b196e0327bc354beb9a0cccdae290842d84c204"
+ },
+ {
+  "path": "WeightedMIS/RegisterEdgeWords.lean",
+  "lines": 221,
+  "sha256": "cffefe8acafd27e5ba6d96d3b741ec918f936399c9464f79fd2c0379b900ccfa"
+ },
+ {
+  "path": "WeightedMIS/RegisterEliminateRows.lean",
+  "lines": 68,
+  "sha256": "2d86a164b438bd329b15c7c9bc25182183e87f8e052d31715b4e367b3ef5380a"
+ },
+ {
+  "path": "WeightedMIS/RegisterEvenMatrix.lean",
+  "lines": 129,
+  "sha256": "931a2ed96f05623de9564c3be0adb3ab8cc3e87b0313e4c0cebf2e61c27bfe98"
+ },
+ {
+  "path": "WeightedMIS/RegisterExit.lean",
+  "lines": 112,
+  "sha256": "1c66004e34b50480839e0973d9ef9f39c8aab2719f99c797042a1d8da5705ea9"
+ },
+ {
+  "path": "WeightedMIS/RegisterExpandedParameters.lean",
+  "lines": 254,
+  "sha256": "d53e1b5cb3ac33af4de1311f51c3d1ca7abba04130742a54ec0a8d5c3db5b86d"
+ },
+ {
+  "path": "WeightedMIS/RegisterExpandedScalars.lean",
+  "lines": 587,
+  "sha256": "89ac736509d20fa7d37b449d54ea3c3af0ee568c39261549271985f92af1ad90"
+ },
+ {
+  "path": "WeightedMIS/RegisterExpandedVertexWords.lean",
+  "lines": 259,
+  "sha256": "881ceac91925ef7c6383dbea70fc7c6a48ed8963965b612e9015db5fc2f13e56"
+ },
+ {
+  "path": "WeightedMIS/RegisterFaceBlock.lean",
+  "lines": 103,
+  "sha256": "f5ec0128330a763d23c87f980c6335efdcee312bc751d2ceb75b4bb23dd6fbe3"
+ },
+ {
+  "path": "WeightedMIS/RegisterFaceColumnStage.lean",
+  "lines": 259,
+  "sha256": "c793d90a861b456caedcae360ac8a82b357e6fe058c044a2846efb69f6d8090a"
+ },
+ {
+  "path": "WeightedMIS/RegisterFaceColumns.lean",
+  "lines": 227,
+  "sha256": "c3356925a0f548da60b7d0683b7c1065fd6364156cdecbce1dc6686c8500c4f1"
+ },
+ {
+  "path": "WeightedMIS/RegisterFaceEnumeration.lean",
+  "lines": 224,
+  "sha256": "eb34d283ea28e3b35a76b982d9ee3f0d41c8af3ca43ec9cbedebd77fb22f76bc"
+ },
+ {
+  "path": "WeightedMIS/RegisterFaceRow.lean",
+  "lines": 302,
+  "sha256": "0b5bd302215bb3a62cad4c2d99facfe08a9e0535069a4b6ef837acfd574c886f"
+ },
+ {
+  "path": "WeightedMIS/RegisterFinalAssembly.lean",
+  "lines": 567,
+  "sha256": "a7f8289e27256a2896fac73b8ab5649ae7c11cc7a2ad544f523972c98626a951"
+ },
+ {
+  "path": "WeightedMIS/RegisterFirstEdge.lean",
+  "lines": 413,
+  "sha256": "26e6386cf583aa3b6d6aa16a46ebd8a3747c9bd87797167c0f58c998f41ecfc3"
+ },
+ {
+  "path": "WeightedMIS/RegisterFirstReturn.lean",
+  "lines": 198,
+  "sha256": "05085bb309fdcae5a9e347480eeb9d882b6adbd7f8032d8911946d922544e543"
+ },
+ {
+  "path": "WeightedMIS/RegisterFlagKeys.lean",
+  "lines": 235,
+  "sha256": "1e07e5872b720c658c05ddf44bb2c66db5757cfb6b41e18bc6bb51aa843ef86b"
+ },
+ {
+  "path": "WeightedMIS/RegisterFlagMembership.lean",
+  "lines": 152,
+  "sha256": "5bfe8ee8aa7fccfa2ac87b67b091f43d476f970afd76b324c130b46ce0a372e0"
+ },
+ {
+  "path": "WeightedMIS/RegisterGCD.lean",
+  "lines": 232,
+  "sha256": "112e16df509c43e23b2a62665d1d563d1b0c958612fdfed6f9fdb870b623e3b4"
+ },
+ {
+  "path": "WeightedMIS/RegisterGenerationInputs.lean",
+  "lines": 294,
+  "sha256": "746fc5ee16893d057fb4b57f836fddd755347bf42a3a2530dba6286b892d4cc0"
+ },
+ {
+  "path": "WeightedMIS/RegisterGenerationPack.lean",
+  "lines": 62,
+  "sha256": "d266b84ad6f0124ba462f1fe9246ce27d79f7218a08205f83052fed3610ce69e"
+ },
+ {
+  "path": "WeightedMIS/RegisterGeneratorWords.lean",
+  "lines": 368,
+  "sha256": "6e4001202ac21f1f096d790c4e605a4fb930711d8c32d1f3870b9b276dee65bd"
+ },
+ {
+  "path": "WeightedMIS/RegisterGraphArcs.lean",
+  "lines": 331,
+  "sha256": "e375b033ceba1b9cb34b9c6bfda5e025576f396688a615db5a6fc4bbf7e9791d"
+ },
+ {
+  "path": "WeightedMIS/RegisterGraphEnumeration.lean",
+  "lines": 115,
+  "sha256": "f51deee6cd56efc0000dbe5ae1c365a8decb997e53756eb613ced522b9dcafe3"
+ },
+ {
+  "path": "WeightedMIS/RegisterHalve.lean",
+  "lines": 195,
+  "sha256": "2ace319afc7c30125a2d435838772b921d8d5308eb0959b5360591de92c9d568"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardInputs.lean",
+  "lines": 521,
+  "sha256": "534dc1d81d36370c4fa46856a50c783c475fec91a12e3c214e76ce3ff87950eb"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardKernel.lean",
+  "lines": 222,
+  "sha256": "02c699a2219105f80976379fc57d4d4639f3d2d2c5f6133fc6db13d39cc41ff9"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardRecovery.lean",
+  "lines": 540,
+  "sha256": "255f953a42847303392589406328e726cbc71d8ca9ea127c053c1727db0e5c7c"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardSearch.lean",
+  "lines": 320,
+  "sha256": "fb5d195d9c79e8801f668f27e6738bb5fa7e073daf829f16d9aebf50cb1d5527"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardSearchBudget.lean",
+  "lines": 155,
+  "sha256": "089d6048a88618e3c8defdaa3c7d80c1bb451de99485f47d6abf7b1a740ceedd"
+ },
+ {
+  "path": "WeightedMIS/RegisterHardSolve.lean",
+  "lines": 411,
+  "sha256": "416da5d66f87a5727f9638bcbdfd17798e1050b94319499dfb7d25f4617ac83b"
+ },
+ {
+  "path": "WeightedMIS/RegisterHistogramValues.lean",
+  "lines": 179,
+  "sha256": "364befb772f33688f9ca07f578bc5739f758387387fab3702616dee64fcb076c"
+ },
+ {
+  "path": "WeightedMIS/RegisterHorner.lean",
+  "lines": 179,
+  "sha256": "28f0f4abab9cf02c848430678254a8eeba1b7f3d99f44d6b939f42a66d018650"
+ },
+ {
+  "path": "WeightedMIS/RegisterHubEntries.lean",
+  "lines": 216,
+  "sha256": "c41d3b56696ba727afcf602be9ae642bfd07f0ad24a9b062e8ea8726728ea4eb"
+ },
+ {
+  "path": "WeightedMIS/RegisterHubSource.lean",
+  "lines": 229,
+  "sha256": "ebd3929b74efeed9e6f9ad84ba8a6a5d2bf4b9d5d626614c227264def900f225"
+ },
+ {
+  "path": "WeightedMIS/RegisterIncidenceRows.lean",
+  "lines": 491,
+  "sha256": "2903c69f461b83172f5271e0729053ec86ee01eef18531a23fd4923c292ee3c2"
+ },
+ {
+  "path": "WeightedMIS/RegisterInducedRibbon.lean",
+  "lines": 339,
+  "sha256": "fcae9ec39612d51a7d695ce87d7b3864c19604acbf97504b69c896c5528b541b"
+ },
+ {
+  "path": "WeightedMIS/RegisterKernelGenerators.lean",
+  "lines": 169,
+  "sha256": "5f3bcb30b779b8c01fa3e3adbb2f1c0b0743a5999b50fca7871ae77ec87d48b0"
+ },
+ {
+  "path": "WeightedMIS/RegisterKeyFaceEnumeration.lean",
+  "lines": 286,
+  "sha256": "fe2915f4f74390696cfb2d331ff2792afc6fc6a403e24de2b311a07fbae681bd"
+ },
+ {
+  "path": "WeightedMIS/RegisterKeyTrace.lean",
+  "lines": 185,
+  "sha256": "9a90a07788e116e7ca57fd0c74a214afcfc924a68ee545c2eb92c469b8407cd9"
+ },
+ {
+  "path": "WeightedMIS/RegisterListCommon.lean",
+  "lines": 62,
+  "sha256": "eee0056b7f4861988a99b976e68fe0005ec267cb634fbb69d1118e276f40611c"
+ },
+ {
+  "path": "WeightedMIS/RegisterListFilter.lean",
+  "lines": 158,
+  "sha256": "f397977cb86b1115ca7cac8461dc67efa8782afb390aee4e871dd311508c26af"
+ },
+ {
+  "path": "WeightedMIS/RegisterListFind.lean",
+  "lines": 177,
+  "sha256": "64a27d6d366918cb55e90d9080382b8ebd827fb0dc3fd178b0a5446ce1257a2f"
+ },
+ {
+  "path": "WeightedMIS/RegisterListFlatMap.lean",
+  "lines": 96,
+  "sha256": "f8e9f12eceadb5ddecb8ae4b9821aaa91879c09c16e091129f646f8e64b283d7"
+ },
+ {
+  "path": "WeightedMIS/RegisterListFold.lean",
+  "lines": 135,
+  "sha256": "a92e821de3c6c77c9f6b2a5f0cbb4e09fd804087f05f00ba2ebb2aa95b98d5c8"
+ },
+ {
+  "path": "WeightedMIS/RegisterListMap.lean",
+  "lines": 137,
+  "sha256": "bd9c3844e7c3569aa22d4b15a5647dcef56816af7cde4a5cb556e859858d5c44"
+ },
+ {
+  "path": "WeightedMIS/RegisterListReverse.lean",
+  "lines": 88,
+  "sha256": "4cca67ac85bb52f089b11274a35650e08ab07e44990045fe4823188c69e00c81"
+ },
+ {
+  "path": "WeightedMIS/RegisterListZip.lean",
+  "lines": 202,
+  "sha256": "d071915da1ebb50055b8f89faecd4f778d7f6364b4d78987cab829f6283124f3"
+ },
+ {
+  "path": "WeightedMIS/RegisterMachine.lean",
+  "lines": 7,
+  "sha256": "81b7e941c1d2008ba124e47aab5daadc64116ef54321f7cc1847e5e2b5b0cd8c"
+ },
+ {
+  "path": "WeightedMIS/RegisterMachineBounds.lean",
+  "lines": 188,
+  "sha256": "fa309a26e7ba1dd91c12607fa487d30c1510828c2eab169c08c573b967812f39"
+ },
+ {
+  "path": "WeightedMIS/RegisterMachineFacts.lean",
+  "lines": 84,
+  "sha256": "0f53db3ea2eebf793857d604f16644e0cd617377b8a8d5036702ce9c69961153"
+ },
+ {
+  "path": "WeightedMIS/RegisterMachineFrames.lean",
+  "lines": 238,
+  "sha256": "b9f36f6dc69fea8d373855ece272c130ff2a23928874a1cd81b342895eeae871"
+ },
+ {
+  "path": "WeightedMIS/RegisterMachineMeta.lean",
+  "lines": 80,
+  "sha256": "2407687c664bd620bc945ae32fe4c1935b3649e0ef861135e8b75eb78ebbb0df"
+ },
+ {
+  "path": "WeightedMIS/RegisterMaxFlowSolve.lean",
+  "lines": 211,
+  "sha256": "08a22fc96d380f1737d2c51d66b77e8cc691a6ce1ca2b098dfac88ac1e9299fd"
+ },
+ {
+  "path": "WeightedMIS/RegisterMembership.lean",
+  "lines": 122,
+  "sha256": "062739989f7e851dd99372319b0e92d08c749a64b716cec6ba80162a6d3365e8"
+ },
+ {
+  "path": "WeightedMIS/RegisterMultiplier.lean",
+  "lines": 205,
+  "sha256": "29b8281033ac5dc32664aed251ba2bd43ab82361bf64d37b6286e8eb0036a931"
+ },
+ {
+  "path": "WeightedMIS/RegisterNetworkNodes.lean",
+  "lines": 478,
+  "sha256": "57253d1c803dc108ba0f3056fd01fff14eb9faff38b4e97206837b4a88e67fa7"
+ },
+ {
+  "path": "WeightedMIS/RegisterNetworkSolve.lean",
+  "lines": 230,
+  "sha256": "5fe9dbb58a7ff876f2b35374a4f4991b0d8dc95d984e1a5030e556e87ca46267"
+ },
+ {
+  "path": "WeightedMIS/RegisterNetworkTable.lean",
+  "lines": 545,
+  "sha256": "51cba39fc1fdf116f584230b4052a5423df9610990a39a12fcba1dc0f87c53e0"
+ },
+ {
+  "path": "WeightedMIS/RegisterNetworkWeights.lean",
+  "lines": 618,
+  "sha256": "bc1150b67e62fd11733429d198b3f6f0bc054229e62deadee4675ece2e97ae92"
+ },
+ {
+  "path": "WeightedMIS/RegisterNodeDecode.lean",
+  "lines": 161,
+  "sha256": "1a2c09296b24717e2fa50a8f4c775370d012562f0068bf34b76202e45d480270"
+ },
+ {
+  "path": "WeightedMIS/RegisterNodeEncode.lean",
+  "lines": 153,
+  "sha256": "cb21872200bb6983dbef6763e8552daf3a6d1369e5885f654a4c56cb07a36a94"
+ },
+ {
+  "path": "WeightedMIS/RegisterNormalization.lean",
+  "lines": 106,
+  "sha256": "a67a1ccccd04ee814b8f3d0842a48125db3d64f92ad13f5cbd07a950210ebf18"
+ },
+ {
+  "path": "WeightedMIS/RegisterOddRow.lean",
+  "lines": 466,
+  "sha256": "33009f9ea4104264320c5ccf282663f83a5048e4834faaa3745b5508d2979017"
+ },
+ {
+  "path": "WeightedMIS/RegisterOddRowStep.lean",
+  "lines": 340,
+  "sha256": "b2089591c4ebd672476d215e6353b2ace632be9427fc65b75d179d747ec20c48"
+ },
+ {
+  "path": "WeightedMIS/RegisterPairReads.lean",
+  "lines": 42,
+  "sha256": "bae9b51073f4040beee565c62d60921e0f2b2711f249503ab4001677e0748e61"
+ },
+ {
+  "path": "WeightedMIS/RegisterParityTable.lean",
+  "lines": 406,
+  "sha256": "3e2931637b8c6d0f91a4bc23f5b9ff4efd19041c29aa3a4486b0af60e632e932"
+ },
+ {
+  "path": "WeightedMIS/RegisterPathLabels.lean",
+  "lines": 118,
+  "sha256": "ee94e7b4be0fa074efabf30b1b586bce81693088da7e4b57a161135e4de7b0f5"
+ },
+ {
+  "path": "WeightedMIS/RegisterPermutationMirror.lean",
+  "lines": 152,
+  "sha256": "4f7936cee748597e2be9e6d4be94b7b464961fa820bb296be0d979cecec15b8f"
+ },
+ {
+  "path": "WeightedMIS/RegisterPermutationTrace.lean",
+  "lines": 126,
+  "sha256": "9414fc626544205436fa26a98cca93a8b23cd3c9dbae307aafd32683ba9aae43"
+ },
+ {
+  "path": "WeightedMIS/RegisterPhaseAttempts.lean",
+  "lines": 259,
+  "sha256": "9f6574a8b8bc2e0510d8d221f3855a2091aae8b3b3513dbed3e6bb7a2bc986e7"
+ },
+ {
+  "path": "WeightedMIS/RegisterPotentialRoute.lean",
+  "lines": 166,
+  "sha256": "8e6cd55d312407232743c9804a5639c390aba1b556e2025ce54217c4bce955dd"
+ },
+ {
+  "path": "WeightedMIS/RegisterPotentialStep.lean",
+  "lines": 122,
+  "sha256": "1b228bbd8a386703bfe0c48937bef122d77b826b616bb6264adf628290e7e607"
+ },
+ {
+  "path": "WeightedMIS/RegisterPreprocessing.lean",
+  "lines": 280,
+  "sha256": "623fb78efcab1f872ed546e31f799ae3ae076482fe7440bce9433fe56b3291e8"
+ },
+ {
+  "path": "WeightedMIS/RegisterQuotRem.lean",
+  "lines": 56,
+  "sha256": "0d4800faab5ff8ffb9a42a2a0cbeee4b547da8d0afa8b10cf077de63e7d9426c"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalAdd.lean",
+  "lines": 211,
+  "sha256": "321b34c2adce5d56ffe8fafb8e885606684007bba84eea5bae04cb047674ebe8"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalCut.lean",
+  "lines": 293,
+  "sha256": "3e03b4300c08fd88af845756ed11255c3d1b6b2b9de9d63d144ef255e60a55ce"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalProducts.lean",
+  "lines": 220,
+  "sha256": "2a431ea0a2ce7523445890a98f6ed28bb677221840795ee5132e5647c4bc3f59"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalProject.lean",
+  "lines": 312,
+  "sha256": "7c0ccf95f315c24ff1590e572428845530e773b1ab561de0d92642684324eae9"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalRow.lean",
+  "lines": 170,
+  "sha256": "7e63dcbc049b9c58b7625c2ac270c1e9177433b0f19247f3b394daea32ae5aa9"
+ },
+ {
+  "path": "WeightedMIS/RegisterRationalZero.lean",
+  "lines": 69,
+  "sha256": "a629b146695d903faabb18ee32c05641b1197c0f426e5178dc497223f13d82ad"
+ },
+ {
+  "path": "WeightedMIS/RegisterReachExtend.lean",
+  "lines": 112,
+  "sha256": "f66ea3381070f8350a69184d47b9f818b7a3b41cf4f4df6c161fbaece9378f3a"
+ },
+ {
+  "path": "WeightedMIS/RegisterRecordLookup.lean",
+  "lines": 189,
+  "sha256": "ed249c812aa7d45559c8deb42bf9df7d97c3fd070433f5434dc46df4281d4f53"
+ },
+ {
+  "path": "WeightedMIS/RegisterRemainder.lean",
+  "lines": 76,
+  "sha256": "6f18a8427c97ddc418ad1c9741fb850434e9ddf3c8d07bc06c6457b7ce5d2f3a"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualAdjust.lean",
+  "lines": 125,
+  "sha256": "80ac900854708edeebc252c1dced00294b4e44bb535b165588bbfd59efcde5b1"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualCrossing.lean",
+  "lines": 146,
+  "sha256": "32257810e27094ffd5f6e4b8ad009db84ef780821b3bea39f22e32984f3ee745"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualPhase.lean",
+  "lines": 229,
+  "sha256": "a107bff32ef18eb3bed52e2422ca505badb22e7d01e170b33ba2d2c4ac2592f1"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualPredicate.lean",
+  "lines": 141,
+  "sha256": "2c088b835a29626f6d40657579b9dfea71af5d58f87af451e84b616e0af150f1"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualReach.lean",
+  "lines": 174,
+  "sha256": "4ad6e4ef3b34d1e00276e2bf59ae26207fa55b08390887e1da6736293d6f3188"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualScales.lean",
+  "lines": 118,
+  "sha256": "8667353a3537fa017d62907a081177543540775aeb04e66d2d3f06a7411aef77"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualSearch.lean",
+  "lines": 93,
+  "sha256": "ebca365b60a56dd8e2bce26b165b10a09fc279d3b8c17e01b23226003f44e31e"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualTableUpdate.lean",
+  "lines": 114,
+  "sha256": "679ed8a5b85b7e7585de165b847fdb06c6749122aaf4b660195d0cdd000cd49f"
+ },
+ {
+  "path": "WeightedMIS/RegisterResidualUpdate.lean",
+  "lines": 181,
+  "sha256": "71bb095a07a8ec3fb3d8fd2439dab9a1b3f084bd1ec45124534f7a135903d99e"
+ },
+ {
+  "path": "WeightedMIS/RegisterResize.lean",
+  "lines": 388,
+  "sha256": "05e4520a90cefefca82f2c604c3fbe25f3d38625bf2ba861654206b81cbd2d11"
+ },
+ {
+  "path": "WeightedMIS/RegisterRestrictCorner.lean",
+  "lines": 196,
+  "sha256": "a3629dac6575c46c458d5d26af5431d4d3f54be91e42f03dc456e3a6749011cd"
+ },
+ {
+  "path": "WeightedMIS/RegisterRestrictTable.lean",
+  "lines": 266,
+  "sha256": "8acf7248bb07e145b30e35a32bf512f78d68d6eabbd1e104601e68218e3a67ab"
+ },
+ {
+  "path": "WeightedMIS/RegisterRibbonCycles.lean",
+  "lines": 264,
+  "sha256": "88622850964a7738360984b2f1b1ffb14762ab5bf923ab34ec15d5ba8f7a5f80"
+ },
+ {
+  "path": "WeightedMIS/RegisterRootValue.lean",
+  "lines": 178,
+  "sha256": "1a3afc7f29301c99217ee34a09fe10dae927f788ee83411ba11ebd5e23f424b9"
+ },
+ {
+  "path": "WeightedMIS/RegisterRouteCounts.lean",
+  "lines": 216,
+  "sha256": "505a6d7c83d0eb4cd596b4e9278bf8623064ce67e6727ec9320455d4b060fd0c"
+ },
+ {
+  "path": "WeightedMIS/RegisterRouteLookup.lean",
+  "lines": 172,
+  "sha256": "2da57a9340cf4d6d2dd8f58ba805967330c25bb81661fcdcb4811db1c155a75a"
+ },
+ {
+  "path": "WeightedMIS/RegisterRoutePrepend.lean",
+  "lines": 61,
+  "sha256": "123d601c77739f4cd4e8ef76a931c366ba33e98c80ef08f7c4d8991c900c8661"
+ },
+ {
+  "path": "WeightedMIS/RegisterRowRecords.lean",
+  "lines": 131,
+  "sha256": "61a3478a4accef5fc10c27cdcca5dca96ccd34c8446b3734bdc9eb132c87c81d"
+ },
+ {
+  "path": "WeightedMIS/RegisterSearchHistogram.lean",
+  "lines": 143,
+  "sha256": "4047b53d099b0a0dfb11423d8265e6b0f2d8424c8e456bc114ab309e44b7e824"
+ },
+ {
+  "path": "WeightedMIS/RegisterSearchReadback.lean",
+  "lines": 92,
+  "sha256": "be029d01118bebc99b7f4467fa04ea8d417b25a780c91b04bfcaf4e5232ab7f3"
+ },
+ {
+  "path": "WeightedMIS/RegisterShift.lean",
+  "lines": 146,
+  "sha256": "71106659203a4c5c414587da44f392971180044416081301c05b686f625fe5ce"
+ },
+ {
+  "path": "WeightedMIS/RegisterSignedAdd.lean",
+  "lines": 221,
+  "sha256": "52aedcce88b791ef98546ec7ed3cfc2ec7427d1a1107e465270fcae8819b026e"
+ },
+ {
+  "path": "WeightedMIS/RegisterSignedDot.lean",
+  "lines": 205,
+  "sha256": "ba6d15308ba8e405f448c55bb4a1f096cfa28a7c47b843279d2d760bba60118b"
+ },
+ {
+  "path": "WeightedMIS/RegisterSignedHalf.lean",
+  "lines": 56,
+  "sha256": "4d0c98d7990acc431616487aa683d9ff48c55ad8bf31ff6a9a846895f63c428f"
+ },
+ {
+  "path": "WeightedMIS/RegisterSignedRows.lean",
+  "lines": 144,
+  "sha256": "9ac9e1417933e7420c7d295c5f35f48e8a7079da166f2c8d8aff30581479509e"
+ },
+ {
+  "path": "WeightedMIS/RegisterSignificant.lean",
+  "lines": 147,
+  "sha256": "25c0671476cd8f2710a9bdc1d29146f3315ae3ea35e37e867dbde21d57067add"
+ },
+ {
+  "path": "WeightedMIS/RegisterSourceDispatch.lean",
+  "lines": 139,
+  "sha256": "000a02926cbb33320337262c7e93c733da26c5ec5f8f1463bd1f0ec6b7b4fd66"
+ },
+ {
+  "path": "WeightedMIS/RegisterStoredRational.lean",
+  "lines": 158,
+  "sha256": "f10315d3004a133b61f31ad14a75f6b665b9e1e2ad4ca40aa1378453152705b3"
+ },
+ {
+  "path": "WeightedMIS/RegisterSubtractor.lean",
+  "lines": 70,
+  "sha256": "58233203f5b9d24c40647837d5db3a080426a568cfd0ce130df88ab848444eec"
+ },
+ {
+  "path": "WeightedMIS/RegisterSupportArcs.lean",
+  "lines": 581,
+  "sha256": "583e2eca2ce1cdeec600a1af9a1d233331398c13539fdea0695501c6ca125a9b"
+ },
+ {
+  "path": "WeightedMIS/RegisterSupportCycle.lean",
+  "lines": 477,
+  "sha256": "2dc3b93b066f4d708c51b7024dc400186511b306d01bb837e228c0c8da3f56c2"
+ },
+ {
+  "path": "WeightedMIS/RegisterTemplateScan.lean",
+  "lines": 66,
+  "sha256": "e603856cbe59e78cacd53bfddd691886a7754a94aa7b5b2eea54c60131319c9e"
+ },
+ {
+  "path": "WeightedMIS/RegisterThresholdVertices.lean",
+  "lines": 269,
+  "sha256": "9c5b74d3d27c68042a8cb6c93206fdfe674031a4ab085c7f5b43c73a2de3eeda"
+ },
+ {
+  "path": "WeightedMIS/RegisterTopLevel.lean",
+  "lines": 130,
+  "sha256": "d25cfb889305485b92c3bdbb24bb916e9520457793ae6df5ffa44b30e51afb8b"
+ },
+ {
+  "path": "WeightedMIS/RegisterTopLevelRun.lean",
+  "lines": 156,
+  "sha256": "b5c79121c5924d3cbf3713056a173a4714bd5266ee16567fc77c2e2f7e6b6f1a"
+ },
+ {
+  "path": "WeightedMIS/RegisterTranspose.lean",
+  "lines": 535,
+  "sha256": "61133dff347652ae05149e99678235ee424be2ee09415aa1d2ccd76cce851e80"
+ },
+ {
+  "path": "WeightedMIS/RegisterWeightMask.lean",
+  "lines": 399,
+  "sha256": "1e12776d0b2e739f9e57924a72bf383782bae13f09a30ef2d546022affa46060"
+ },
+ {
+  "path": "WeightedMIS/RegisterWiden.lean",
+  "lines": 216,
+  "sha256": "14a51e03cfc74f4de1dc8b96dc496f4450d0335347a405fc1fd3e42451ff66fd"
+ },
+ {
+  "path": "WeightedMIS/RegisterWordArithmetic.lean",
+  "lines": 36,
+  "sha256": "2c0ff2bae004f58b1a37b61023824c3eef9f56a7b9d6f5327f02f7f554ea76ed"
+ },
+ {
+  "path": "WeightedMIS/RegisterWordAssoc.lean",
+  "lines": 155,
+  "sha256": "cf64bd921be8fbf5db2c4b7bc2e3fe57a15b69eee4b6b3aa09d095887c69c2bc"
+ },
+ {
+  "path": "WeightedMIS/RegisterWordFilter.lean",
+  "lines": 307,
+  "sha256": "6b50c404e727fea978754e6116407b47f6299b79bcb4261e98bbf8c961003a9c"
+ },
+ {
+  "path": "WeightedMIS/RegisterWordRange.lean",
+  "lines": 156,
+  "sha256": "c67e51deaa86fec419ea5d5b8ecdd182b868e3a1272f6204982834902fe2e66d"
+ },
+ {
+  "path": "WeightedMIS/RegisterWorkSource.lean",
+  "lines": 145,
+  "sha256": "0014c6421306e14456fbb8a81990e6a371778707f3e7416ffe93296f0252a2d0"
+ },
+ {
+  "path": "WeightedMIS/RegisterZero.lean",
+  "lines": 74,
+  "sha256": "ebfbe68632bf6bfce2a0ff76ae6923fe8991b144320ce2e70b2244ab7b5abaee"
+ },
+ {
+  "path": "WeightedMIS/ResidualCrossingRefinement.lean",
+  "lines": 92,
+  "sha256": "53c8b0924382994a598c655897eac0d1ca8ce92557a94278bc21c121cb705749"
+ },
+ {
+  "path": "WeightedMIS/ResidualListPhase.lean",
+  "lines": 60,
+  "sha256": "fe01f3a0ccfe6d9fde1257e0cecc21ca37ef90cad821f278e92b88b89cdc4b29"
+ },
+ {
+  "path": "WeightedMIS/ResidualListReach.lean",
+  "lines": 165,
+  "sha256": "e2bfc817bfbc6bf39eb889643430b4b3acf16f85515ec393d66181bb57a9c530"
+ },
+ {
+  "path": "WeightedMIS/ResidualListScales.lean",
+  "lines": 36,
+  "sha256": "a93b2349057bec6b269d5d86cdb732f7f47e89e886971cb68367ed6431c17912"
+ },
+ {
+  "path": "WeightedMIS/ResidualPhaseRefinement.lean",
+  "lines": 136,
+  "sha256": "01e9f6e7e013ad2b9fe7707138b90cacfb58438d7350be9978cdbd3fa8ba3148"
+ },
+ {
+  "path": "WeightedMIS/ResidualReachGeneric.lean",
+  "lines": 172,
+  "sha256": "c6b814dfaee2394215622e6c68d2fcfc53d3b8f67953e2dbdfe80938981c7d23"
+ },
+ {
+  "path": "WeightedMIS/ResidualScalesRefinement.lean",
+  "lines": 131,
+  "sha256": "02f9d689ea8259cfb8ec54261907a9c4570952c455c4510bcfe96cb60f7b6641"
+ },
+ {
+  "path": "WeightedMIS/ResidualUpdateRefinement.lean",
+  "lines": 141,
+  "sha256": "ccf6a8c2e3358d8c338c969b7f4ab66747f931ea5a7744cb5dab053f55b62ac8"
+ },
+ {
+  "path": "WeightedMIS/ResidualWords.lean",
+  "lines": 85,
+  "sha256": "5ba2460e3853b9cd8011d6ddbf58191bd8a23ce582f3287e925da53131b621ca"
+ },
+ {
+  "path": "WeightedMIS/RibbonCellular.lean",
+  "lines": 82,
+  "sha256": "372e7ac57d9e6b432ac7a4e1457d398cc5b35213b02428e812739ad0d5852546"
+ },
+ {
+  "path": "WeightedMIS/RibbonComponentEuler.lean",
+  "lines": 118,
+  "sha256": "3a829a3e9505a1ea359a7adaed66972483411115d18922b0c0d0850c61c1e7df"
+ },
+ {
+  "path": "WeightedMIS/RibbonComponentFaces.lean",
+  "lines": 175,
+  "sha256": "14ce170c0642af12154363feb0a16a06469ebb14436277543c374e4e19defaa4"
+ },
+ {
+  "path": "WeightedMIS/RibbonComponents.lean",
+  "lines": 194,
+  "sha256": "f26818d755a9933f0201d16c03b5dc00e0692fd5f5f7a7961a7d7cb8de27db22"
+ },
+ {
+  "path": "WeightedMIS/RibbonDeletionRelabeling.lean",
+  "lines": 122,
+  "sha256": "4640a487b5d6d3988dbc0677006fe860c9fbb3277f46a115d337668d28da1f8d"
+ },
+ {
+  "path": "WeightedMIS/RibbonDrawingRestriction.lean",
+  "lines": 53,
+  "sha256": "e4b6d9e7778f4d8b64b2bc0107c8f1b66e138cf38a700d44f8cb619acbd80a0e"
+ },
+ {
+  "path": "WeightedMIS/RibbonEnumeratedSides.lean",
+  "lines": 271,
+  "sha256": "7309fbc723494c419a4bbe6005173bbc2528d3d02dc7b44b55913c8b091aa206"
+ },
+ {
+  "path": "WeightedMIS/RibbonEnumeration.lean",
+  "lines": 144,
+  "sha256": "5399b7fa2ac9df6fe478d31078d1d590faefc6e4ddfc2f77dd7339c450219cf9"
+ },
+ {
+  "path": "WeightedMIS/RibbonFaceRelabeling.lean",
+  "lines": 133,
+  "sha256": "97fdf83a7e70880e2d136f0bd35b5b78051dd0b12fbd291481963c92b544281c"
+ },
+ {
+  "path": "WeightedMIS/RibbonFaces.lean",
+  "lines": 307,
+  "sha256": "2c0d127618a6a4d1565146cb491f776f94670f538cfdf3cd09f2ad08d5baed9a"
+ },
+ {
+  "path": "WeightedMIS/RibbonLinks.lean",
+  "lines": 49,
+  "sha256": "4fe384380d278318a3e52bd7a41eb0063c404b978ecebc4563afd686b8332be1"
+ },
+ {
+  "path": "WeightedMIS/RibbonOrientation.lean",
+  "lines": 187,
+  "sha256": "53fc8e30665aa7b5bb22a516c29c881aa89d3c267fcc117162315050d38e2e0e"
+ },
+ {
+  "path": "WeightedMIS/RibbonRelabeling.lean",
+  "lines": 96,
+  "sha256": "3b161b9b60d683e5a96201b5080a007597708f411ab49ec66959dfbf0de17dca"
+ },
+ {
+  "path": "WeightedMIS/RibbonRestriction.lean",
+  "lines": 143,
+  "sha256": "23101bae1f8edb3a8b9ce6a23e708ffe43b888fdc5f46439e5fa82e406419bc8"
+ },
+ {
+  "path": "WeightedMIS/RibbonRestrictionCompatibility.lean",
+  "lines": 79,
+  "sha256": "f2f8b23f0539a020434f2afd0214db016bd01c2026c400984c853852347c472c"
+ },
+ {
+  "path": "WeightedMIS/RibbonSmoothing.lean",
+  "lines": 155,
+  "sha256": "242f3a649d2993dab1f72706f07c2ce91a08d678e8b56e4389b75c0a90760883"
+ },
+ {
+  "path": "WeightedMIS/RibbonTable.lean",
+  "lines": 327,
+  "sha256": "55af1a78bcc445c32bb60ca87a02cdf01a978d60f2114306facbbd2a6614356e"
+ },
+ {
+  "path": "WeightedMIS/RibbonTableRestrict.lean",
+  "lines": 307,
+  "sha256": "61243bef9b752c0b5b8cc912cf8a2af5d8b8b8774a88b3b0b1d9b00745c2d722"
+ },
+ {
+  "path": "WeightedMIS/RibbonTracing.lean",
+  "lines": 209,
+  "sha256": "c1b5dfd8be7ef02b62cbad30376fd4b5b527ebb4d772c21bf0ccd70ca15c1005"
+ },
+ {
+  "path": "WeightedMIS/RuntimeAbsorption.lean",
+  "lines": 74,
+  "sha256": "fbc434f448950ed21434113bb986ea608ea8efbb365221f357b1af99f985488d"
+ },
+ {
+  "path": "WeightedMIS/ScalarNodeCodec.lean",
+  "lines": 209,
+  "sha256": "ae16e11717afaf7f2613176d7f30ce3beda721774a035cdad6dce7c7d185dbe5"
+ },
+ {
+  "path": "WeightedMIS/SearchConstruction.lean",
+  "lines": 234,
+  "sha256": "ccf3c1afb7496839b7c9ed131c963a9df893b8e7e4d51425795ac136044fdf8c"
+ },
+ {
+  "path": "WeightedMIS/SearchHistogramProjection.lean",
+  "lines": 152,
+  "sha256": "8488ec0a8b2a21fdf99890eb16c2d3a65eb542f14ebb1c7b13c4a1ea2521734e"
+ },
+ {
+  "path": "WeightedMIS/SearchOptimum.lean",
+  "lines": 163,
+  "sha256": "afea137f57bdbf60b819c6dce60780b4013139d72ff529d447521bffd42a6ed7"
+ },
+ {
+  "path": "WeightedMIS/ShortestPath.lean",
+  "lines": 199,
+  "sha256": "20d84e0eedc937782bbd70412be70cdc7462169eb84fa632b5528cbcb3ebe983"
+ },
+ {
+  "path": "WeightedMIS/SignedWords.lean",
+  "lines": 67,
+  "sha256": "46ce5601985d2eb8daaeefaa41756ab6a14df4f77060edfe6ea08975c510e39a"
+ },
+ {
+  "path": "WeightedMIS/Slack.lean",
+  "lines": 231,
+  "sha256": "212daae137db1ab64edba80d13911c2cd3011a7ac374772e944da35b3dfe9a78"
+ },
+ {
+  "path": "WeightedMIS/SmoothingFaces.lean",
+  "lines": 144,
+  "sha256": "6796b0423ac4ce86a9e5a06fff233849005ccdd292667cedec8e0f6515725ddd"
+ },
+ {
+  "path": "WeightedMIS/SparseConstructionProgram.lean",
+  "lines": 137,
+  "sha256": "ca7f1bf85f651808f66c3cfe6c8dd05114fe61491dde9df1a10d93203d55294c"
+ },
+ {
+  "path": "WeightedMIS/SparseGraphConstruction.lean",
+  "lines": 111,
+  "sha256": "55a661ac39800f78bff12553defbe3746aae35b25bdb1aeb6752750d61485b98"
+ },
+ {
+  "path": "WeightedMIS/SparseKernel.lean",
+  "lines": 290,
+  "sha256": "840af8c2e4f865f2d86a1d9ab12335dcd3438b54f0efc39475081dd065ba9372"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchGraph.lean",
+  "lines": 184,
+  "sha256": "7f859e404bc32ae2a8e61d3e256b5e7a5f490b926f60e95037d3d7ea1ff3b795"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchLabeled.lean",
+  "lines": 87,
+  "sha256": "c216d09e1b339fb5f82a64f5a321a22c62837536319810f73bd716fb16661e02"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchLabeledPath.lean",
+  "lines": 180,
+  "sha256": "129cd4152ffd5ceaa71aa04cdff32c1f5e629663bf4b2f814b25591c156c84ba"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchLabeledWeights.lean",
+  "lines": 77,
+  "sha256": "0bf5540f735015216e7105df7c77b8eac74b95f8e028e68c8a7e42e3cbce11d8"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchPath.lean",
+  "lines": 174,
+  "sha256": "a31e6542cfa018f4fe16e95d4b219daf1c4c56e98dba84337c388e0e6a8a26e3"
+ },
+ {
+  "path": "WeightedMIS/SparseSearchWeights.lean",
+  "lines": 173,
+  "sha256": "5df07debe7938ddfe43dbefab54f7991bc32c73715bcb1192f122e120f728dfe"
+ },
+ {
+  "path": "WeightedMIS/SparseSize.lean",
+  "lines": 125,
+  "sha256": "9bdb87584c996363892f36440862d3d6873801379b0fe998fdc4b894697709c4"
+ },
+ {
+  "path": "WeightedMIS/Spec.lean",
+  "lines": 6,
+  "sha256": "be67aac0b19d6cd9b8f8d367ce2cef91c62ab47693877b48d2f8c56ed4eaad92"
+ },
+ {
+  "path": "WeightedMIS/SpecBridge.lean",
+  "lines": 117,
+  "sha256": "fae6e1ef233d83199b219ea36ffcd308a782317fd71fbb0da215eb2c21744434"
+ },
+ {
+  "path": "WeightedMIS/SpecConnectivity.lean",
+  "lines": 65,
+  "sha256": "6d187fb1755f5682125991df1be82046e8b6a0762db74250367c9334a3dd10eb"
+ },
+ {
+  "path": "WeightedMIS/SpecDrawnCorner.lean",
+  "lines": 153,
+  "sha256": "59eef227f41f12649e2eab7498e743023affde992a7ca2fcb09479b746e4193b"
+ },
+ {
+  "path": "WeightedMIS/SpecEncoding.lean",
+  "lines": 307,
+  "sha256": "abd2345f033c1a94d8728379422bda76deaddab4393ec54e1767bc1487b9874d"
+ },
+ {
+  "path": "WeightedMIS/SpecEncodingWriters.lean",
+  "lines": 285,
+  "sha256": "ed0472593e84df9c86d53b4707cb94430470f1b1f1abbb0362aeacb6c0bba76c"
+ },
+ {
+  "path": "WeightedMIS/SpecFaces.lean",
+  "lines": 108,
+  "sha256": "46ede1270cc6553083d084c380568418245fec180263bc67c81f7ddf8bf13e0e"
+ },
+ {
+  "path": "WeightedMIS/SpecFlags.lean",
+  "lines": 121,
+  "sha256": "b2fc2c3e815d78f5886ed2956a0d70dda9da3ed24c6356837984e1fb4564cb67"
+ },
+ {
+  "path": "WeightedMIS/SpecIndependence.lean",
+  "lines": 48,
+  "sha256": "84b890fa2ceb6b09484c98ab9e52f8c5da13b6d1fdd96f07662a54bc6f92230a"
+ },
+ {
+  "path": "WeightedMIS/SpecMachine.lean",
+  "lines": 8,
+  "sha256": "f12b54f5a40e9066109e51f69ffa929aab6d70b0c5c91521c62ebd06879191c6"
+ },
+ {
+  "path": "WeightedMIS/SpecOrientation.lean",
+  "lines": 105,
+  "sha256": "58b44bfc9a0947d9b33beea618b2c751c3b269309952763632cde5516a0062ec"
+ },
+ {
+  "path": "WeightedMIS/SpecRegions.lean",
+  "lines": 136,
+  "sha256": "77d15905e31edac9d258c8154925bbdfe5fe81795a2007f7bce254b75c4e0c2d"
+ },
+ {
+  "path": "WeightedMIS/Statement.lean",
+  "lines": 696,
+  "sha256": "8acbad1d299c0aa94edff84d25a7ec6371261ad8e01d42785d597b2a43f99ed5"
+ },
+ {
+  "path": "WeightedMIS/StoredElimination.lean",
+  "lines": 100,
+  "sha256": "48876072f7719f0ee00caaa37413c1855cc46e10bc32a885a17dc00e721dcba6"
+ },
+ {
+  "path": "WeightedMIS/StoredEliminationCost.lean",
+  "lines": 253,
+  "sha256": "2eaea3df763caf821c1f91b3d853be89f8c355388d682805d3344932ea825e25"
+ },
+ {
+  "path": "WeightedMIS/StoredRational.lean",
+  "lines": 116,
+  "sha256": "90ab50a56316f68a18f2ad70e6a674b750fce1aa0b246fc0ebc0d07d06c042d5"
+ },
+ {
+  "path": "WeightedMIS/SupportConstructionCost.lean",
+  "lines": 377,
+  "sha256": "bd851c27647ed161bda23aa50bae6274cb713e9b6dea19dd7cdb9bdf13635cf0"
+ },
+ {
+  "path": "WeightedMIS/SupportCycle.lean",
+  "lines": 90,
+  "sha256": "aba41cd648ef79ab319be5fdd567db072fb27a4d2ab38f127079d7289cb216ef"
+ },
+ {
+  "path": "WeightedMIS/SupportCycleWords.lean",
+  "lines": 454,
+  "sha256": "92b0f5bb4baec269b8b36236a829b361bef89a8164a11a3fe1251fad876374ce"
+ },
+ {
+  "path": "WeightedMIS/Walks.lean",
+  "lines": 231,
+  "sha256": "f6a3c0bc477fa278d23e7ffd8310a383b2ebcd7ad7ed177a1401bfb86955adc5"
+ },
+ {
+  "path": "WeightedMIS/WeightedHall.lean",
+  "lines": 113,
+  "sha256": "34f5d178f204aa190a267823481b9738b0b4b7718b527a3318be2faef88678d0"
+ },
+ {
+  "path": "WeightedMIS/WordNodeCodec.lean",
+  "lines": 97,
+  "sha256": "07a912e6e20a85ee91774906c3c3e12e5a5f770544b7e3ead039b8088ddde155"
+ }
+]
